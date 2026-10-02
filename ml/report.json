@@ -1,0 +1,80 @@
+{
+  "model_version": 1,
+  "data_source": "SYNTHETIC (labeling_rules.py) \u2014 not clinically validated",
+  "n_train": 32000,
+  "n_test": 8000,
+  "accuracy": 0.981625,
+  "emergency_recall": 0.9968354430379747,
+  "under_triage_rate": 0.01075,
+  "confusion_matrix(rows=true,cols=pred)": [
+    [
+      1854,
+      28,
+      0,
+      0
+    ],
+    [
+      47,
+      3084,
+      31,
+      0
+    ],
+    [
+      0,
+      35,
+      1655,
+      2
+    ],
+    [
+      0,
+      0,
+      4,
+      1260
+    ]
+  ],
+  "tiers": [
+    "self_care",
+    "routine",
+    "urgent",
+    "emergency"
+  ],
+  "per_class": {
+    "self_care": {
+      "precision": 0.9752761704366123,
+      "recall": 0.9851222104144527,
+      "f1-score": 0.9801744647105471,
+      "support": 1882.0
+    },
+    "routine": {
+      "precision": 0.9799809342230696,
+      "recall": 0.9753320683111955,
+      "f1-score": 0.9776509747979077,
+      "support": 3162.0
+    },
+    "urgent": {
+      "precision": 0.9792899408284024,
+      "recall": 0.9781323877068558,
+      "f1-score": 0.9787108219988173,
+      "support": 1692.0
+    },
+    "emergency": {
+      "precision": 0.9984152139461173,
+      "recall": 0.9968354430379747,
+      "f1-score": 0.997624703087886,
+      "support": 1264.0
+    },
+    "accuracy": 0.981625,
+    "macro avg": {
+      "precision": 0.9832405648585504,
+      "recall": 0.9838555273676197,
+      "f1-score": 0.9835402411487895,
+      "support": 8000.0
+    },
+    "weighted avg": {
+      "precision": 0.981640609635575,
+      "recall": 0.981625,
+      "f1-score": 0.9816246325526652,
+      "support": 8000.0
+    }
+  }
+}

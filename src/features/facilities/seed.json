@@ -1,0 +1,10 @@
+{
+  "_review": "Seed directory bundled for offline use. ONLY the national helplines are verified. Facility coordinates are approximate and phone numbers are intentionally left null until confirmed with the Patiala district health office — the app shows 'number not verified' and falls back to 108. The server pushes the verified list on first sync.",
+  "version": "2026.10-seed-1",
+  "facilities": [
+    { "id": "fac-108", "name": "Ambulance (108)", "name_local": { "hi": "एम्बुलेंस (108)", "pa": "ਐਂਬੂਲੈਂਸ (108)" }, "type": "ambulance", "latitude": 30.3747, "longitude": 76.1500, "services": ["ambulance", "emergency"], "phone": "108", "address": "Free emergency ambulance – Punjab", "verified": true, "updated_at": "2026-10-01T00:00:00Z" },
+    { "id": "fac-112", "name": "Emergency helpline (112)", "name_local": { "hi": "आपातकालीन हेल्पलाइन (112)", "pa": "ਐਮਰਜੈਂਸੀ ਹੈਲਪਲਾਈਨ (112)" }, "type": "ambulance", "latitude": 30.3747, "longitude": 76.1500, "services": ["emergency", "police", "fire"], "phone": "112", "address": "National emergency number", "verified": true, "updated_at": "2026-10-01T00:00:00Z" },
+    { "id": "fac-nabha-ch", "name": "Civil Hospital Nabha", "name_local": { "hi": "सिविल अस्पताल नाभा", "pa": "ਸਿਵਲ ਹਸਪਤਾਲ ਨਾਭਾ" }, "type": "civil_hospital", "latitude": 30.3750, "longitude": 76.1530, "services": ["emergency", "opd", "maternity", "lab", "xray", "anti_snake_venom", "anti_rabies", "ayushman_desk"], "phone": null, "address": "Nabha, Patiala district, Punjab", "verified": false, "updated_at": "2026-10-01T00:00:00Z" },
+    { "id": "fac-patiala-rajindra", "name": "Government Rajindra Hospital, Patiala", "name_local": { "hi": "सरकारी राजिंद्रा अस्पताल, पटियाला", "pa": "ਸਰਕਾਰੀ ਰਾਜਿੰਦਰਾ ਹਸਪਤਾਲ, ਪਟਿਆਲਾ" }, "type": "civil_hospital", "latitude": 30.3398, "longitude": 76.3869, "services": ["emergency", "trauma", "icu", "specialists"], "phone": null, "address": "Patiala (referral centre, ~25 km)", "verified": false, "updated_at": "2026-10-01T00:00:00Z" }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "_review": {
+    "status": "UNREVIEWED_DRAFT",
+    "note": "Drafted from widely published lay first-aid principles (e.g. WHO, Indian Red Cross, IFRC basic first aid). It has NOT been reviewed by a qualified medical advisor and MUST be signed off (and the Hindi/Punjabi checked by native speakers) before real-world use. The app shows a banner while status != APPROVED.",
+    "version": "2026.10-draft",
+    "approvedBy": null,
+    "approvedOn": null
+  },
+  "topics": {
+    "general_emergency": {
+      "icon": "alarm-light",
+      "title": { "en": "Emergency – get help now", "hi": "आपातकाल – तुरंत मदद लें", "pa": "ਐਮਰਜੈਂਸੀ – ਤੁਰੰਤ ਮਦਦ ਲਓ" },
+      "do": {
+        "en": ["Call 108 for an ambulance, or 112.", "Stay with the person and keep them calm.", "If they are not breathing, shout for help and start chest pushes if you know how.", "Do not give food or water."],
+        "hi": ["एम्बुलेंस के लिए 108 या 112 पर फ़ोन करें।", "मरीज़ के साथ रहें और उन्हें शांत रखें।", "अगर साँस नहीं चल रही, मदद के लिए आवाज़ लगाएँ और आता हो तो छाती दबाना शुरू करें।", "खाना या पानी न दें।"],
+        "pa": ["ਐਂਬੂਲੈਂਸ ਲਈ 108 ਜਾਂ 112 ਤੇ ਫ਼ੋਨ ਕਰੋ।", "ਮਰੀਜ਼ ਦੇ ਨਾਲ ਰਹੋ ਅਤੇ ਉਸਨੂੰ ਸ਼ਾਂਤ ਰੱਖੋ।", "ਜੇ ਸਾਹ ਨਹੀਂ ਆ ਰਿਹਾ, ਮਦਦ ਲਈ ਆਵਾਜ਼ ਮਾਰੋ ਅਤੇ ਜੇ ਆਉਂਦਾ ਹੋਵੇ ਤਾਂ ਛਾਤੀ ਦਬਾਉਣੀ ਸ਼ੁਰੂ ਕਰੋ।", "ਖਾਣਾ ਜਾਂ ਪਾਣੀ ਨਾ ਦਿਓ।"]
+      },
+      "dont": { "en": [], "hi": [], "pa": [] }
+    },
+    "bleeding": {
+      "icon": "water",
+      "title": { "en": "Heavy bleeding", "hi": "बहुत खून बहना", "pa": "ਬਹੁਤ ਖ਼ੂਨ ਵਗਣਾ" },
+      "do": {
+        "en": ["Press hard on the wound with a clean cloth.", "Keep pressing without lifting for at least 10 minutes.", "If blood soaks through, put another cloth on top and keep pressing.", "Lay the person down and keep them warm.", "Go to hospital or call 108."],
+        "hi": ["घाव पर साफ़ कपड़े से ज़ोर से दबाएँ।", "कम से कम 10 मिनट तक बिना हटाए दबाते रहें।", "अगर खून कपड़े से निकल आए, तो ऊपर दूसरा कपड़ा रखें और दबाते रहें।", "मरीज़ को लिटा दें और गर्म रखें।", "अस्पताल जाएँ या 108 पर फ़ोन करें।"],
+        "pa": ["ਜ਼ਖ਼ਮ ਤੇ ਸਾਫ਼ ਕੱਪੜੇ ਨਾਲ ਜ਼ੋਰ ਨਾਲ ਦਬਾਓ।", "ਘੱਟੋ-ਘੱਟ 10 ਮਿੰਟ ਬਿਨਾਂ ਹਟਾਏ ਦਬਾਉਂਦੇ ਰਹੋ।", "ਜੇ ਖ਼ੂਨ ਕੱਪੜੇ ਵਿੱਚੋਂ ਨਿਕਲ ਆਵੇ, ਉੱਤੇ ਹੋਰ ਕੱਪੜਾ ਰੱਖੋ ਅਤੇ ਦਬਾਉਂਦੇ ਰਹੋ।", "ਮਰੀਜ਼ ਨੂੰ ਲਿਟਾ ਦਿਓ ਅਤੇ ਨਿੱਘਾ ਰੱਖੋ।", "ਹਸਪਤਾਲ ਜਾਓ ਜਾਂ 108 ਤੇ ਫ਼ੋਨ ਕਰੋ।"]
+      },
+      "dont": {
+        "en": ["Do not remove an object stuck in the wound.", "Do not put mud, ash or powder on the wound."],
+        "hi": ["घाव में फँसी चीज़ को न निकालें।", "घाव पर मिट्टी, राख या पाउडर न लगाएँ।"],
+        "pa": ["ਜ਼ਖ਼ਮ ਵਿੱਚ ਫਸੀ ਚੀਜ਼ ਨਾ ਕੱਢੋ।", "ਜ਼ਖ਼ਮ ਤੇ ਮਿੱਟੀ, ਸੁਆਹ ਜਾਂ ਪਾਊਡਰ ਨਾ ਲਾਓ।"]
+      }
+    },
+    "choking": {
+      "icon": "account-alert",
+      "title": { "en": "Choking", "hi": "गले में कुछ फँसना", "pa": "ਗਲੇ ਵਿੱਚ ਕੁਝ ਫਸਣਾ" },
+      "do": {
+        "en": ["If they can cough, tell them to keep coughing.", "If they cannot breathe or speak: bend them forward and give 5 firm blows between the shoulder blades.", "Then stand behind, fist above the belly button, and give 5 quick pulls inwards and upwards.", "Repeat back blows and belly pulls until it comes out.", "For a baby: lay face down on your arm, 5 back blows, then 5 chest pushes with two fingers.", "If they become unconscious, call 108."],
+        "hi": ["अगर खाँस पा रहे हैं, तो खाँसते रहने को कहें।", "अगर साँस या बोल नहीं पा रहे: आगे झुकाएँ और कंधों के बीच 5 बार ज़ोर से थपथपाएँ।", "फिर पीछे खड़े होकर, नाभि के ऊपर मुट्ठी रखें और 5 बार तेज़ी से अंदर-ऊपर की ओर खींचें।", "निकलने तक पीठ पर थपकी और पेट पर खिंचाव दोहराएँ।", "शिशु के लिए: बाँह पर उल्टा लिटाएँ, पीठ पर 5 थपकी, फिर दो उँगलियों से छाती पर 5 बार दबाएँ।", "अगर बेहोश हो जाएँ, 108 पर फ़ोन करें।"],
+        "pa": ["ਜੇ ਖੰਘ ਸਕਦੇ ਹਨ, ਤਾਂ ਖੰਘਦੇ ਰਹਿਣ ਲਈ ਕਹੋ।", "ਜੇ ਸਾਹ ਜਾਂ ਬੋਲ ਨਹੀਂ ਸਕਦੇ: ਅੱਗੇ ਝੁਕਾਓ ਅਤੇ ਮੋਢਿਆਂ ਵਿਚਕਾਰ 5 ਵਾਰ ਜ਼ੋਰ ਨਾਲ ਥਾਪੜੋ।", "ਫਿਰ ਪਿੱਛੇ ਖੜ੍ਹੇ ਹੋ ਕੇ, ਧੁੰਨੀ ਦੇ ਉੱਤੇ ਮੁੱਠੀ ਰੱਖੋ ਅਤੇ 5 ਵਾਰ ਤੇਜ਼ੀ ਨਾਲ ਅੰਦਰ-ਉੱਪਰ ਵੱਲ ਖਿੱਚੋ।", "ਨਿਕਲਣ ਤੱਕ ਪਿੱਠ ਤੇ ਥਾਪੜੇ ਅਤੇ ਪੇਟ ਤੇ ਖਿੱਚ ਦੁਹਰਾਓ।", "ਬੱਚੇ ਲਈ: ਬਾਂਹ ਤੇ ਮੂਧਾ ਲਿਟਾਓ, ਪਿੱਠ ਤੇ 5 ਥਾਪੜੇ, ਫਿਰ ਦੋ ਉਂਗਲਾਂ ਨਾਲ ਛਾਤੀ ਤੇ 5 ਵਾਰ ਦਬਾਓ।", "ਜੇ ਬੇਹੋਸ਼ ਹੋ ਜਾਣ, 108 ਤੇ ਫ਼ੋਨ ਕਰੋ।"]
+      },
+      "dont": {
+        "en": ["Do not put your fingers blindly into the mouth."],
+        "hi": ["बिना देखे मुँह में उँगली न डालें।"],
+        "pa": ["ਬਿਨਾਂ ਵੇਖੇ ਮੂੰਹ ਵਿੱਚ ਉਂਗਲ ਨਾ ਪਾਓ।"]
+      }
+    },
+    "fracture": {
+      "icon": "bone",
+      "title": { "en": "Possible broken bone", "hi": "हड्डी टूटने की आशंका", "pa": "ਹੱਡੀ ਟੁੱਟਣ ਦਾ ਸ਼ੱਕ" },
+      "do": {
+        "en": ["Keep the injured part still, in the position you found it.", "Support it with a folded cloth, stick or cardboard tied gently on both sides.", "Put a cloth-wrapped cold pack on the swelling.", "Go to hospital for an X-ray."],
+        "hi": ["चोट वाले हिस्से को जैसा है वैसा ही स्थिर रखें।", "मुड़े कपड़े, लकड़ी या गत्ते से दोनों ओर हल्के से बाँधकर सहारा दें।", "सूजन पर कपड़े में लपेटी ठंडी चीज़ रखें।", "एक्स-रे के लिए अस्पताल जाएँ।"],
+        "pa": ["ਸੱਟ ਵਾਲੇ ਹਿੱਸੇ ਨੂੰ ਜਿਵੇਂ ਹੈ ਉਵੇਂ ਹੀ ਸਥਿਰ ਰੱਖੋ।", "ਤਹਿ ਕੀਤੇ ਕੱਪੜੇ, ਲੱਕੜ ਜਾਂ ਗੱਤੇ ਨਾਲ ਦੋਵੇਂ ਪਾਸੇ ਹੌਲੀ ਬੰਨ੍ਹ ਕੇ ਸਹਾਰਾ ਦਿਓ।", "ਸੋਜ ਤੇ ਕੱਪੜੇ ਵਿੱਚ ਲਪੇਟੀ ਠੰਢੀ ਚੀਜ਼ ਰੱਖੋ।", "ਐਕਸ-ਰੇ ਲਈ ਹਸਪਤਾਲ ਜਾਓ।"]
+      },
+      "dont": {
+        "en": ["Do not try to straighten or push the bone back.", "Do not massage the injury."],
+        "hi": ["हड्डी को सीधा करने या अंदर धकेलने की कोशिश न करें।", "चोट की मालिश न करें।"],
+        "pa": ["ਹੱਡੀ ਸਿੱਧੀ ਕਰਨ ਜਾਂ ਅੰਦਰ ਧੱਕਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਨਾ ਕਰੋ।", "ਸੱਟ ਦੀ ਮਾਲਿਸ਼ ਨਾ ਕਰੋ।"]
+      }
+    },
+    "snake_bite": {
+      "icon": "snake",
+      "title": { "en": "Snake bite", "hi": "साँप का काटना", "pa": "ਸੱਪ ਦਾ ਡੰਗ" },
+      "do": {
+        "en": ["Keep the person calm and still — movement spreads venom.", "Remove rings, bangles and tight clothing near the bite.", "Keep the bitten limb still and at or below heart level, like a broken bone.", "Go to the hospital immediately — anti-snake venom is the only treatment. Call 108."],
+        "hi": ["मरीज़ को शांत और स्थिर रखें — हिलने से ज़हर फैलता है।", "काटने की जगह के पास से अंगूठी, चूड़ी और तंग कपड़े हटा दें।", "काटे गए अंग को हड्डी टूटने की तरह स्थिर और दिल के स्तर या नीचे रखें।", "तुरंत अस्पताल जाएँ — साँप के ज़हर की दवा (एंटी-वेनम) ही इलाज है। 108 पर फ़ोन करें।"],
+        "pa": ["ਮਰੀਜ਼ ਨੂੰ ਸ਼ਾਂਤ ਅਤੇ ਸਥਿਰ ਰੱਖੋ — ਹਿੱਲਣ ਨਾਲ ਜ਼ਹਿਰ ਫੈਲਦਾ ਹੈ।", "ਡੰਗ ਵਾਲੀ ਥਾਂ ਦੇ ਨੇੜਿਓਂ ਮੁੰਦਰੀ, ਚੂੜੀਆਂ ਅਤੇ ਤੰਗ ਕੱਪੜੇ ਲਾਹ ਦਿਓ।", "ਡੰਗੇ ਅੰਗ ਨੂੰ ਟੁੱਟੀ ਹੱਡੀ ਵਾਂਗ ਸਥਿਰ ਅਤੇ ਦਿਲ ਦੇ ਪੱਧਰ ਜਾਂ ਹੇਠਾਂ ਰੱਖੋ।", "ਤੁਰੰਤ ਹਸਪਤਾਲ ਜਾਓ — ਸੱਪ ਦੇ ਜ਼ਹਿਰ ਦੀ ਦਵਾਈ (ਐਂਟੀ-ਵੈਨਮ) ਹੀ ਇਲਾਜ ਹੈ। 108 ਤੇ ਫ਼ੋਨ ਕਰੋ।"]
+      },
+      "dont": {
+        "en": ["Do not cut the bite or suck out venom.", "Do not tie a tight band (tourniquet).", "Do not waste time on home remedies or faith healers."],
+        "hi": ["काटने की जगह को न काटें, न ज़हर चूसें।", "कसकर पट्टी (टूर्निकेट) न बाँधें।", "घरेलू नुस्खों या झाड़-फूँक में समय बर्बाद न करें।"],
+        "pa": ["ਡੰਗ ਵਾਲੀ ਥਾਂ ਨਾ ਕੱਟੋ, ਨਾ ਜ਼ਹਿਰ ਚੂਸੋ।", "ਕੱਸ ਕੇ ਪੱਟੀ (ਟੂਰਨੀਕੇਟ) ਨਾ ਬੰਨ੍ਹੋ।", "ਘਰੇਲੂ ਨੁਸਖ਼ਿਆਂ ਜਾਂ ਝਾੜ-ਫੂਕ ਵਿੱਚ ਸਮਾਂ ਨਾ ਗੁਆਓ।"]
+      }
+    },
+    "burns": {
+      "icon": "fire",
+      "title": { "en": "Burns", "hi": "जलना", "pa": "ਸੜਨਾ" },
+      "do": {
+        "en": ["Cool the burn under cool running water for 20 minutes.", "Remove rings or tight items before swelling starts.", "Cover loosely with clean plastic wrap or a clean cloth.", "Go to hospital if the burn is bigger than the person's palm, or on the face, hands, or private parts."],
+        "hi": ["जले हुए हिस्से को 20 मिनट तक बहते ठंडे पानी में रखें।", "सूजन से पहले अंगूठी या तंग चीज़ें उतार दें।", "साफ़ प्लास्टिक या साफ़ कपड़े से हल्का ढकें।", "अगर जलन हथेली से बड़ी हो, या चेहरे, हाथ या गुप्तांग पर हो तो अस्पताल जाएँ।"],
+        "pa": ["ਸੜੇ ਹਿੱਸੇ ਨੂੰ 20 ਮਿੰਟ ਵਗਦੇ ਠੰਢੇ ਪਾਣੀ ਹੇਠ ਰੱਖੋ।", "ਸੋਜ ਤੋਂ ਪਹਿਲਾਂ ਮੁੰਦਰੀ ਜਾਂ ਤੰਗ ਚੀਜ਼ਾਂ ਲਾਹ ਦਿਓ।", "ਸਾਫ਼ ਪਲਾਸਟਿਕ ਜਾਂ ਸਾਫ਼ ਕੱਪੜੇ ਨਾਲ ਹਲਕਾ ਢੱਕੋ।", "ਜੇ ਸੜਿਆ ਹਿੱਸਾ ਹਥੇਲੀ ਤੋਂ ਵੱਡਾ ਹੋਵੇ, ਜਾਂ ਚਿਹਰੇ, ਹੱਥਾਂ ਜਾਂ ਗੁਪਤ ਅੰਗਾਂ ਤੇ ਹੋਵੇ ਤਾਂ ਹਸਪਤਾਲ ਜਾਓ।"]
+      },
+      "dont": {
+        "en": ["Do not use ice, toothpaste, oil, ghee or butter.", "Do not burst blisters."],
+        "hi": ["बर्फ़, टूथपेस्ट, तेल, घी या मक्खन न लगाएँ।", "छाले न फोड़ें।"],
+        "pa": ["ਬਰਫ਼, ਟੁੱਥਪੇਸਟ, ਤੇਲ, ਘਿਓ ਜਾਂ ਮੱਖਣ ਨਾ ਲਾਓ।", "ਛਾਲੇ ਨਾ ਭੰਨੋ।"]
+      }
+    },
+    "unconscious": {
+      "icon": "sleep",
+      "title": { "en": "Unconscious person", "hi": "बेहोश व्यक्ति", "pa": "ਬੇਹੋਸ਼ ਵਿਅਕਤੀ" },
+      "do": {
+        "en": ["Call 108.", "Check if they are breathing: look at the chest for 10 seconds.", "If breathing: roll them on their side (recovery position) so they don't choke.", "If NOT breathing: push hard and fast in the centre of the chest, about 2 pushes per second, until help comes."],
+        "hi": ["108 पर फ़ोन करें।", "देखें कि साँस चल रही है: 10 सेकंड तक छाती देखें।", "अगर साँस चल रही है: करवट से लिटाएँ ताकि दम न घुटे।", "अगर साँस नहीं चल रही: मदद आने तक छाती के बीच में ज़ोर से और तेज़ी से दबाएँ, लगभग 2 बार प्रति सेकंड।"],
+        "pa": ["108 ਤੇ ਫ਼ੋਨ ਕਰੋ।", "ਵੇਖੋ ਕਿ ਸਾਹ ਆ ਰਿਹਾ ਹੈ: 10 ਸਕਿੰਟ ਛਾਤੀ ਵੇਖੋ।", "ਜੇ ਸਾਹ ਆ ਰਿਹਾ ਹੈ: ਪਾਸੇ ਭਾਰ ਲਿਟਾਓ ਤਾਂ ਜੋ ਦਮ ਨਾ ਘੁੱਟੇ।", "ਜੇ ਸਾਹ ਨਹੀਂ ਆ ਰਿਹਾ: ਮਦਦ ਆਉਣ ਤੱਕ ਛਾਤੀ ਦੇ ਵਿਚਕਾਰ ਜ਼ੋਰ ਨਾਲ ਅਤੇ ਤੇਜ਼ੀ ਨਾਲ ਦਬਾਓ, ਲਗਭਗ 2 ਵਾਰ ਪ੍ਰਤੀ ਸਕਿੰਟ।"]
+      },
+      "dont": {
+        "en": ["Do not give anything by mouth.", "Do not splash water on the face."],
+        "hi": ["मुँह से कुछ न दें।", "चेहरे पर पानी के छींटे न मारें।"],
+        "pa": ["ਮੂੰਹ ਰਾਹੀਂ ਕੁਝ ਨਾ ਦਿਓ।", "ਚਿਹਰੇ ਤੇ ਪਾਣੀ ਦੇ ਛਿੱਟੇ ਨਾ ਮਾਰੋ।"]
+      }
+    },
+    "seizure": {
+      "icon": "lightning-bolt",
+      "title": { "en": "Fits / seizure", "hi": "दौरा / मिर्गी", "pa": "ਦੌਰਾ / ਮਿਰਗੀ" },
+      "do": {
+        "en": ["Move hard or sharp things away.", "Put something soft under the head.", "Note the time the fit started.", "When shaking stops, roll them on their side.", "Call 108 if it lasts more than 5 minutes, repeats, or it is the first fit."],
+        "hi": ["सख़्त या नुकीली चीज़ें दूर हटाएँ।", "सिर के नीचे कुछ नरम रखें।", "दौरा शुरू होने का समय नोट करें।", "झटके रुकने पर करवट से लिटाएँ।", "5 मिनट से ज़्यादा चले, दोबारा आए, या पहली बार हो तो 108 पर फ़ोन करें।"],
+        "pa": ["ਸਖ਼ਤ ਜਾਂ ਤਿੱਖੀਆਂ ਚੀਜ਼ਾਂ ਦੂਰ ਕਰੋ।", "ਸਿਰ ਹੇਠ ਕੁਝ ਨਰਮ ਰੱਖੋ।", "ਦੌਰਾ ਸ਼ੁਰੂ ਹੋਣ ਦਾ ਸਮਾਂ ਨੋਟ ਕਰੋ।", "ਝਟਕੇ ਰੁਕਣ ਤੇ ਪਾਸੇ ਭਾਰ ਲਿਟਾਓ।", "5 ਮਿੰਟ ਤੋਂ ਵੱਧ ਚੱਲੇ, ਮੁੜ ਆਵੇ, ਜਾਂ ਪਹਿਲੀ ਵਾਰ ਹੋਵੇ ਤਾਂ 108 ਤੇ ਫ਼ੋਨ ਕਰੋ।"]
+      },
+      "dont": {
+        "en": ["Do not hold them down.", "Do not put anything in the mouth (no spoon, no shoe, no onion)."],
+        "hi": ["उन्हें ज़बरदस्ती न पकड़ें।", "मुँह में कुछ न डालें (चम्मच, जूता, प्याज़ नहीं)।"],
+        "pa": ["ਉਨ੍ਹਾਂ ਨੂੰ ਜ਼ਬਰਦਸਤੀ ਨਾ ਫੜੋ।", "ਮੂੰਹ ਵਿੱਚ ਕੁਝ ਨਾ ਪਾਓ (ਚਮਚਾ, ਜੁੱਤੀ, ਪਿਆਜ਼ ਨਹੀਂ)।"]
+      }
+    },
+    "chest_pain": {
+      "icon": "heart-pulse",
+      "title": { "en": "Chest pain", "hi": "छाती में दर्द", "pa": "ਛਾਤੀ ਵਿੱਚ ਦਰਦ" },
+      "do": {
+        "en": ["Make the person sit down and rest, half-sitting is often easiest.", "Loosen tight clothing.", "Call 108 and go to hospital immediately — treatment works best in the first hour.", "If they become unconscious and stop breathing, start chest pushes."],
+        "hi": ["मरीज़ को बिठाकर आराम कराएँ, आधा बैठना अक्सर आसान होता है।", "तंग कपड़े ढीले करें।", "108 पर फ़ोन करें और तुरंत अस्पताल जाएँ — पहले घंटे में इलाज सबसे असरदार होता है।", "अगर बेहोश हो जाएँ और साँस रुक जाए, छाती दबाना शुरू करें।"],
+        "pa": ["ਮਰੀਜ਼ ਨੂੰ ਬਿਠਾ ਕੇ ਆਰਾਮ ਕਰਵਾਓ, ਅੱਧਾ ਬੈਠਣਾ ਅਕਸਰ ਸੌਖਾ ਹੁੰਦਾ ਹੈ।", "ਤੰਗ ਕੱਪੜੇ ਢਿੱਲੇ ਕਰੋ।", "108 ਤੇ ਫ਼ੋਨ ਕਰੋ ਅਤੇ ਤੁਰੰਤ ਹਸਪਤਾਲ ਜਾਓ — ਪਹਿਲੇ ਘੰਟੇ ਵਿੱਚ ਇਲਾਜ ਸਭ ਤੋਂ ਅਸਰਦਾਰ ਹੁੰਦਾ ਹੈ।", "ਜੇ ਬੇਹੋਸ਼ ਹੋ ਜਾਣ ਅਤੇ ਸਾਹ ਰੁਕ ਜਾਵੇ, ਛਾਤੀ ਦਬਾਉਣੀ ਸ਼ੁਰੂ ਕਰੋ।"]
+      },
+      "dont": {
+        "en": ["Do not let them walk or exert themselves.", "Do not wait to see if it goes away."],
+        "hi": ["उन्हें चलने या मेहनत न करने दें।", "ठीक होने का इंतज़ार न करें।"],
+        "pa": ["ਉਨ੍ਹਾਂ ਨੂੰ ਤੁਰਨ ਜਾਂ ਮਿਹਨਤ ਨਾ ਕਰਨ ਦਿਓ।", "ਠੀਕ ਹੋਣ ਦੀ ਉਡੀਕ ਨਾ ਕਰੋ।"]
+      }
+    },
+    "poisoning": {
+      "icon": "bottle-tonic-skull",
+      "title": { "en": "Poison or pesticide swallowed", "hi": "ज़हर या कीटनाशक निगलना", "pa": "ਜ਼ਹਿਰ ਜਾਂ ਕੀਟਨਾਸ਼ਕ ਨਿਗਲਣਾ" },
+      "do": {
+        "en": ["Call 108 and go to hospital immediately.", "Take the bottle or packet with you so doctors know what it was.", "If pesticide is on skin or clothes, remove clothes and wash skin with soap and water.", "If they vomit, keep them on their side."],
+        "hi": ["108 पर फ़ोन करें और तुरंत अस्पताल जाएँ।", "बोतल या पैकेट साथ ले जाएँ ताकि डॉक्टर जान सकें कि क्या था।", "अगर कीटनाशक त्वचा या कपड़ों पर है, कपड़े उतारें और साबुन-पानी से धोएँ।", "उल्टी हो तो करवट से लिटाएँ।"],
+        "pa": ["108 ਤੇ ਫ਼ੋਨ ਕਰੋ ਅਤੇ ਤੁਰੰਤ ਹਸਪਤਾਲ ਜਾਓ।", "ਬੋਤਲ ਜਾਂ ਪੈਕਟ ਨਾਲ ਲੈ ਜਾਓ ਤਾਂ ਜੋ ਡਾਕਟਰ ਜਾਣ ਸਕਣ ਕਿ ਕੀ ਸੀ।", "ਜੇ ਕੀਟਨਾਸ਼ਕ ਚਮੜੀ ਜਾਂ ਕੱਪੜਿਆਂ ਤੇ ਹੈ, ਕੱਪੜੇ ਲਾਹੋ ਅਤੇ ਸਾਬਣ-ਪਾਣੀ ਨਾਲ ਧੋਵੋ।", "ਉਲਟੀ ਆਵੇ ਤਾਂ ਪਾਸੇ ਭਾਰ ਲਿਟਾਓ।"]
+      },
+      "dont": {
+        "en": ["Do not make them vomit.", "Do not give milk, salt water or oil."],
+        "hi": ["ज़बरदस्ती उल्टी न कराएँ।", "दूध, नमक का पानी या तेल न दें।"],
+        "pa": ["ਜ਼ਬਰਦਸਤੀ ਉਲਟੀ ਨਾ ਕਰਵਾਓ।", "ਦੁੱਧ, ਲੂਣ ਵਾਲਾ ਪਾਣੀ ਜਾਂ ਤੇਲ ਨਾ ਦਿਓ।"]
+      }
+    },
+    "dehydration": {
+      "icon": "cup-water",
+      "title": { "en": "Loose motions / vomiting – prevent dehydration", "hi": "दस्त / उल्टी – पानी की कमी से बचाव", "pa": "ਦਸਤ / ਉਲਟੀ – ਪਾਣੀ ਦੀ ਕਮੀ ਤੋਂ ਬਚਾਅ" },
+      "do": {
+        "en": ["Give ORS (oral rehydration solution) in small sips, often.", "No ORS? Mix 6 level teaspoons of sugar and half a teaspoon of salt in 1 litre of clean boiled and cooled water.", "Keep breastfeeding babies.", "Children: give zinc tablets if available from the health worker.", "See a doctor if there is blood in stool, no urine for 6+ hours, very sleepy, or cannot drink."],
+        "hi": ["ORS (जीवन रक्षक घोल) थोड़ा-थोड़ा, बार-बार पिलाएँ।", "ORS नहीं है? 1 लीटर उबले और ठंडे साफ़ पानी में 6 छोटे चम्मच चीनी और आधा चम्मच नमक मिलाएँ।", "शिशु को स्तनपान कराते रहें।", "बच्चों को: स्वास्थ्य कार्यकर्ता से मिले तो ज़िंक की गोली दें।", "मल में खून, 6 घंटे से पेशाब नहीं, बहुत सुस्ती, या पी न पाएँ तो डॉक्टर को दिखाएँ।"],
+        "pa": ["ORS (ਜੀਵਨ ਰੱਖਿਅਕ ਘੋਲ) ਥੋੜ੍ਹਾ-ਥੋੜ੍ਹਾ, ਵਾਰ-ਵਾਰ ਪਿਲਾਓ।", "ORS ਨਹੀਂ ਹੈ? 1 ਲੀਟਰ ਉਬਲੇ ਅਤੇ ਠੰਢੇ ਸਾਫ਼ ਪਾਣੀ ਵਿੱਚ 6 ਛੋਟੇ ਚਮਚ ਖੰਡ ਅਤੇ ਅੱਧਾ ਚਮਚ ਲੂਣ ਮਿਲਾਓ।", "ਬੱਚੇ ਨੂੰ ਮਾਂ ਦਾ ਦੁੱਧ ਪਿਲਾਉਂਦੇ ਰਹੋ।", "ਬੱਚਿਆਂ ਨੂੰ: ਸਿਹਤ ਕਰਮਚਾਰੀ ਤੋਂ ਮਿਲੇ ਤਾਂ ਜ਼ਿੰਕ ਦੀ ਗੋਲੀ ਦਿਓ।", "ਟੱਟੀ ਵਿੱਚ ਖ਼ੂਨ, 6 ਘੰਟੇ ਤੋਂ ਪਿਸ਼ਾਬ ਨਹੀਂ, ਬਹੁਤ ਸੁਸਤੀ, ਜਾਂ ਪੀ ਨਾ ਸਕਣ ਤਾਂ ਡਾਕਟਰ ਨੂੰ ਦਿਖਾਓ।"]
+      },
+      "dont": {
+        "en": ["Do not stop giving fluids or food.", "Do not give anti-diarrhoea medicine to children without a doctor."],
+        "hi": ["पानी या खाना देना बंद न करें।", "बच्चों को डॉक्टर के बिना दस्त रोकने की दवा न दें।"],
+        "pa": ["ਪਾਣੀ ਜਾਂ ਖਾਣਾ ਦੇਣਾ ਬੰਦ ਨਾ ਕਰੋ।", "ਬੱਚਿਆਂ ਨੂੰ ਡਾਕਟਰ ਤੋਂ ਬਿਨਾਂ ਦਸਤ ਰੋਕਣ ਦੀ ਦਵਾਈ ਨਾ ਦਿਓ।"]
+      }
+    },
+    "fever": {
+      "icon": "thermometer",
+      "title": { "en": "Fever – care at home", "hi": "बुखार – घर पर देखभाल", "pa": "ਬੁਖ਼ਾਰ – ਘਰ ਵਿੱਚ ਦੇਖਭਾਲ" },
+      "do": {
+        "en": ["Drink plenty of water and fluids.", "Rest, and wear light clothing.", "Sponge with lukewarm (not cold) water.", "See a doctor if fever lasts more than 3 days, is very high, or comes with rash, stiff neck, confusion or breathing trouble."],
+        "hi": ["ख़ूब पानी और तरल पदार्थ पिएँ।", "आराम करें और हल्के कपड़े पहनें।", "गुनगुने (ठंडे नहीं) पानी से शरीर पोंछें।", "बुखार 3 दिन से ज़्यादा रहे, बहुत तेज़ हो, या दाने, गर्दन अकड़ना, उलझन या साँस की तकलीफ़ हो तो डॉक्टर को दिखाएँ।"],
+        "pa": ["ਬਹੁਤ ਪਾਣੀ ਅਤੇ ਤਰਲ ਪਦਾਰਥ ਪੀਓ।", "ਆਰਾਮ ਕਰੋ ਅਤੇ ਹਲਕੇ ਕੱਪੜੇ ਪਾਓ।", "ਕੋਸੇ (ਠੰਢੇ ਨਹੀਂ) ਪਾਣੀ ਨਾਲ ਸਰੀਰ ਪੂੰਝੋ।", "ਬੁਖ਼ਾਰ 3 ਦਿਨ ਤੋਂ ਵੱਧ ਰਹੇ, ਬਹੁਤ ਤੇਜ਼ ਹੋਵੇ, ਜਾਂ ਦਾਣੇ, ਗਰਦਨ ਆਕੜਨਾ, ਉਲਝਣ ਜਾਂ ਸਾਹ ਦੀ ਤਕਲੀਫ਼ ਹੋਵੇ ਤਾਂ ਡਾਕਟਰ ਨੂੰ ਦਿਖਾਓ।"]
+      },
+      "dont": {
+        "en": ["Do not give aspirin to children.", "Do not wrap a feverish child in blankets."],
+        "hi": ["बच्चों को एस्पिरिन न दें।", "बुखार वाले बच्चे को कंबल में न लपेटें।"],
+        "pa": ["ਬੱਚਿਆਂ ਨੂੰ ਐਸਪਰੀਨ ਨਾ ਦਿਓ।", "ਬੁਖ਼ਾਰ ਵਾਲੇ ਬੱਚੇ ਨੂੰ ਕੰਬਲ ਵਿੱਚ ਨਾ ਲਪੇਟੋ।"]
+      }
+    },
+    "minor_wound": {
+      "icon": "bandage",
+      "title": { "en": "Small cut or scrape", "hi": "छोटा कट या खरोंच", "pa": "ਛੋਟਾ ਕੱਟ ਜਾਂ ਝਰੀਟ" },
+      "do": {
+        "en": ["Wash with clean water and soap.", "Press with a clean cloth until bleeding stops.", "Cover with a clean bandage.", "Get a tetanus injection if not had one in 5 years, or if the wound is dirty or deep."],
+        "hi": ["साफ़ पानी और साबुन से धोएँ।", "खून रुकने तक साफ़ कपड़े से दबाएँ।", "साफ़ पट्टी से ढकें।", "5 साल में टिटनेस का टीका न लगा हो, या घाव गंदा या गहरा हो, तो टीका लगवाएँ।"],
+        "pa": ["ਸਾਫ਼ ਪਾਣੀ ਅਤੇ ਸਾਬਣ ਨਾਲ ਧੋਵੋ।", "ਖ਼ੂਨ ਰੁਕਣ ਤੱਕ ਸਾਫ਼ ਕੱਪੜੇ ਨਾਲ ਦਬਾਓ।", "ਸਾਫ਼ ਪੱਟੀ ਨਾਲ ਢੱਕੋ।", "5 ਸਾਲ ਵਿੱਚ ਟੈਟਨਸ ਦਾ ਟੀਕਾ ਨਾ ਲੱਗਾ ਹੋਵੇ, ਜਾਂ ਜ਼ਖ਼ਮ ਗੰਦਾ ਜਾਂ ਡੂੰਘਾ ਹੋਵੇ, ਤਾਂ ਟੀਕਾ ਲਗਵਾਓ।"]
+      },
+      "dont": {
+        "en": ["Do not put mud, cow dung or turmeric paste in the wound."],
+        "hi": ["घाव में मिट्टी, गोबर या हल्दी का लेप न लगाएँ।"],
+        "pa": ["ਜ਼ਖ਼ਮ ਵਿੱਚ ਮਿੱਟੀ, ਗੋਹਾ ਜਾਂ ਹਲਦੀ ਦਾ ਲੇਪ ਨਾ ਲਾਓ।"]
+      }
+    },
+    "animal_bite": {
+      "icon": "dog",
+      "title": { "en": "Dog or animal bite", "hi": "कुत्ते या जानवर का काटना", "pa": "ਕੁੱਤੇ ਜਾਂ ਜਾਨਵਰ ਦਾ ਵੱਢਣਾ" },
+      "do": {
+        "en": ["Wash the wound with soap and running water for 15 minutes.", "Go to the hospital TODAY for the anti-rabies vaccine — rabies cannot be cured once symptoms start.", "Complete all vaccine doses."],
+        "hi": ["घाव को साबुन और बहते पानी से 15 मिनट तक धोएँ।", "रेबीज़ के टीके के लिए आज ही अस्पताल जाएँ — लक्षण शुरू होने के बाद रेबीज़ का इलाज नहीं है।", "टीके की सभी ख़ुराकें पूरी करें।"],
+        "pa": ["ਜ਼ਖ਼ਮ ਨੂੰ ਸਾਬਣ ਅਤੇ ਵਗਦੇ ਪਾਣੀ ਨਾਲ 15 ਮਿੰਟ ਧੋਵੋ।", "ਰੇਬੀਜ਼ ਦੇ ਟੀਕੇ ਲਈ ਅੱਜ ਹੀ ਹਸਪਤਾਲ ਜਾਓ — ਲੱਛਣ ਸ਼ੁਰੂ ਹੋਣ ਤੋਂ ਬਾਅਦ ਰੇਬੀਜ਼ ਦਾ ਇਲਾਜ ਨਹੀਂ ਹੈ।", "ਟੀਕੇ ਦੀਆਂ ਸਾਰੀਆਂ ਖ਼ੁਰਾਕਾਂ ਪੂਰੀਆਂ ਕਰੋ।"]
+      },
+      "dont": {
+        "en": ["Do not apply chilli, oil or other pastes.", "Do not cover the wound tightly or stitch it at home."],
+        "hi": ["मिर्च, तेल या कोई लेप न लगाएँ।", "घाव को कसकर न ढकें और घर पर टाँके न लगाएँ।"],
+        "pa": ["ਮਿਰਚ, ਤੇਲ ਜਾਂ ਕੋਈ ਲੇਪ ਨਾ ਲਾਓ।", "ਜ਼ਖ਼ਮ ਨੂੰ ਕੱਸ ਕੇ ਨਾ ਢੱਕੋ ਅਤੇ ਘਰ ਵਿੱਚ ਟਾਂਕੇ ਨਾ ਲਾਓ।"]
+      }
+    },
+    "pregnancy_bleeding": {
+      "icon": "human-pregnant",
+      "title": { "en": "Bleeding during pregnancy", "hi": "गर्भावस्था में खून आना", "pa": "ਗਰਭ ਦੌਰਾਨ ਖ਼ੂਨ ਆਉਣਾ" },
+      "do": {
+        "en": ["Call 108 — this needs a hospital now.", "Lie down on the left side.", "Use a clean cloth pad and take it with you so the doctor can see how much bleeding.", "Bring your Mother & Child Protection (MCP) card."],
+        "hi": ["108 पर फ़ोन करें — इसके लिए तुरंत अस्पताल ज़रूरी है।", "बाईं करवट लेटें।", "साफ़ कपड़े का पैड इस्तेमाल करें और साथ ले जाएँ ताकि डॉक्टर खून की मात्रा देख सकें।", "अपना ज़च्चा-बच्चा सुरक्षा (MCP) कार्ड साथ लाएँ।"],
+        "pa": ["108 ਤੇ ਫ਼ੋਨ ਕਰੋ — ਇਸ ਲਈ ਤੁਰੰਤ ਹਸਪਤਾਲ ਜ਼ਰੂਰੀ ਹੈ।", "ਖੱਬੇ ਪਾਸੇ ਲੇਟੋ।", "ਸਾਫ਼ ਕੱਪੜੇ ਦਾ ਪੈਡ ਵਰਤੋ ਅਤੇ ਨਾਲ ਲੈ ਜਾਓ ਤਾਂ ਜੋ ਡਾਕਟਰ ਖ਼ੂਨ ਦੀ ਮਾਤਰਾ ਵੇਖ ਸਕਣ।", "ਆਪਣਾ ਜੱਚਾ-ਬੱਚਾ ਸੁਰੱਖਿਆ (MCP) ਕਾਰਡ ਨਾਲ ਲਿਆਓ।"]
+      },
+      "dont": {
+        "en": ["Do not wait for it to stop.", "Do not put anything inside the vagina."],
+        "hi": ["रुकने का इंतज़ार न करें।", "योनि के अंदर कुछ न डालें।"],
+        "pa": ["ਰੁਕਣ ਦੀ ਉਡੀਕ ਨਾ ਕਰੋ।", "ਯੋਨੀ ਦੇ ਅੰਦਰ ਕੁਝ ਨਾ ਪਾਓ।"]
+      }
+    }
+  }
+}

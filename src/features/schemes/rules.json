@@ -1,0 +1,65 @@
+{
+  "_review": {
+    "status": "UNVERIFIED",
+    "note": "Offline FALLBACK ruleset — a simplified reading of public summaries of AB-PMJAY eligibility (SECC-2011 deprivation criteria, automatic inclusion, the Oct-2024 extension to all citizens aged 70+) and Punjab's state top-up scheme. Scheme rules change; this file must be verified against nha.gov.in / sha.punjab.gov.in and updated (the server pushes newer versions when online). Results are always labelled 'likely' and 'confirm online'.",
+    "sources": [
+      "https://pmjay.gov.in (Am I Eligible portal)",
+      "https://en.wikipedia.org/wiki/Ayushman_Bharat_Yojana",
+      "https://pmjayhospitals.com/pmjay-eligibility-who-is-covered/"
+    ]
+  },
+  "version": "2026.10-offline-1",
+  "questions": [
+    { "id": "age_70_plus", "type": "bool", "icon": "human-cane",
+      "text": { "en": "Is anyone in your family aged 70 or older?", "hi": "क्या आपके परिवार में कोई 70 साल या उससे ज़्यादा उम्र का है?", "pa": "ਕੀ ਤੁਹਾਡੇ ਪਰਿਵਾਰ ਵਿੱਚ ਕੋਈ 70 ਸਾਲ ਜਾਂ ਵੱਧ ਉਮਰ ਦਾ ਹੈ?" } },
+    { "id": "has_ration_card", "type": "bool", "icon": "card-account-details-outline",
+      "text": { "en": "Does your family have a smart ration card (NFSA / blue card)?", "hi": "क्या आपके परिवार के पास स्मार्ट राशन कार्ड (NFSA / नीला कार्ड) है?", "pa": "ਕੀ ਤੁਹਾਡੇ ਪਰਿਵਾਰ ਕੋਲ ਸਮਾਰਟ ਰਾਸ਼ਨ ਕਾਰਡ (NFSA / ਨੀਲਾ ਕਾਰਡ) ਹੈ?" } },
+    { "id": "kutcha_house", "type": "bool", "icon": "home-outline",
+      "text": { "en": "Do you live in one room with kutcha (mud) walls and roof?", "hi": "क्या आप कच्ची दीवार और छत वाले एक कमरे में रहते हैं?", "pa": "ਕੀ ਤੁਸੀਂ ਕੱਚੀਆਂ ਕੰਧਾਂ ਅਤੇ ਛੱਤ ਵਾਲੇ ਇੱਕ ਕਮਰੇ ਵਿੱਚ ਰਹਿੰਦੇ ਹੋ?" } },
+    { "id": "sc_st", "type": "bool", "icon": "account-group-outline",
+      "text": { "en": "Is your family Scheduled Caste or Scheduled Tribe?", "hi": "क्या आपका परिवार अनुसूचित जाति या अनुसूचित जनजाति से है?", "pa": "ਕੀ ਤੁਹਾਡਾ ਪਰਿਵਾਰ ਅਨੁਸੂਚਿਤ ਜਾਤੀ ਜਾਂ ਅਨੁਸੂਚਿਤ ਕਬੀਲੇ ਤੋਂ ਹੈ?" } },
+    { "id": "landless_labour", "type": "bool", "icon": "shovel",
+      "text": { "en": "Is your family landless and earning mainly from daily wage labour?", "hi": "क्या आपका परिवार भूमिहीन है और मुख्य रूप से दिहाड़ी मज़दूरी से कमाता है?", "pa": "ਕੀ ਤੁਹਾਡਾ ਪਰਿਵਾਰ ਬੇਜ਼ਮੀਨਾ ਹੈ ਅਤੇ ਮੁੱਖ ਤੌਰ ਤੇ ਦਿਹਾੜੀ ਮਜ਼ਦੂਰੀ ਤੋਂ ਕਮਾਉਂਦਾ ਹੈ?" } },
+    { "id": "female_head_no_adult_male", "type": "bool", "icon": "human-female",
+      "text": { "en": "Is the family headed by a woman with no adult male (16–59) earning?", "hi": "क्या परिवार की मुखिया महिला है और कोई वयस्क पुरुष (16–59) कमाने वाला नहीं है?", "pa": "ਕੀ ਪਰਿਵਾਰ ਦੀ ਮੁਖੀ ਔਰਤ ਹੈ ਅਤੇ ਕੋਈ ਬਾਲਗ ਮਰਦ (16–59) ਕਮਾਉਣ ਵਾਲਾ ਨਹੀਂ?" } },
+    { "id": "no_working_adult", "type": "bool", "icon": "account-off-outline",
+      "text": { "en": "Is there no adult aged 16–59 in the family?", "hi": "क्या परिवार में 16–59 साल का कोई वयस्क नहीं है?", "pa": "ਕੀ ਪਰਿਵਾਰ ਵਿੱਚ 16–59 ਸਾਲ ਦਾ ਕੋਈ ਬਾਲਗ ਨਹੀਂ?" } },
+    { "id": "disabled_no_able_adult", "type": "bool", "icon": "wheelchair-accessibility",
+      "text": { "en": "Is there a disabled member and no able-bodied adult?", "hi": "क्या परिवार में कोई दिव्यांग है और कोई सक्षम वयस्क नहीं है?", "pa": "ਕੀ ਪਰਿਵਾਰ ਵਿੱਚ ਕੋਈ ਅਪਾਹਜ ਹੈ ਅਤੇ ਕੋਈ ਸਮਰੱਥ ਬਾਲਗ ਨਹੀਂ?" } },
+    { "id": "no_literate_adult_25", "type": "bool", "icon": "book-off-outline",
+      "text": { "en": "Is there no literate adult above 25 in the family?", "hi": "क्या परिवार में 25 साल से ऊपर कोई पढ़ा-लिखा वयस्क नहीं है?", "pa": "ਕੀ ਪਰਿਵਾਰ ਵਿੱਚ 25 ਸਾਲ ਤੋਂ ਉੱਪਰ ਕੋਈ ਪੜ੍ਹਿਆ-ਲਿਖਿਆ ਬਾਲਗ ਨਹੀਂ?" } },
+    { "id": "destitute_or_bonded", "type": "bool", "icon": "home-off-outline",
+      "text": { "en": "Is the family homeless, destitute, a manual scavenger family, or freed bonded labour?", "hi": "क्या परिवार बेघर, निराश्रित, हाथ से मैला ढोने वाला, या मुक्त बंधुआ मज़दूर है?", "pa": "ਕੀ ਪਰਿਵਾਰ ਬੇਘਰ, ਨਿਆਸਰਾ, ਹੱਥੀਂ ਮੈਲਾ ਢੋਣ ਵਾਲਾ, ਜਾਂ ਆਜ਼ਾਦ ਬੰਧੂਆ ਮਜ਼ਦੂਰ ਹੈ?" } },
+    { "id": "construction_worker_or_jform_farmer", "type": "bool", "icon": "tractor",
+      "text": { "en": "Is anyone a registered construction worker, or a farmer with a J-form?", "hi": "क्या कोई पंजीकृत निर्माण श्रमिक है, या जे-फ़ॉर्म वाला किसान है?", "pa": "ਕੀ ਕੋਈ ਰਜਿਸਟਰਡ ਉਸਾਰੀ ਮਜ਼ਦੂਰ ਹੈ, ਜਾਂ ਜੇ-ਫ਼ਾਰਮ ਵਾਲਾ ਕਿਸਾਨ ਹੈ?" } }
+  ],
+  "schemes": [
+    {
+      "id": "pmjay",
+      "name": { "en": "Ayushman Bharat PM-JAY", "hi": "आयुष्मान भारत PM-JAY", "pa": "ਆਯੁਸ਼ਮਾਨ ਭਾਰਤ PM-JAY" },
+      "benefit": { "en": "Up to ₹5 lakh per family per year for hospital care, cashless at empanelled hospitals.", "hi": "सूचीबद्ध अस्पतालों में प्रति परिवार प्रति वर्ष ₹5 लाख तक का कैशलेस इलाज।", "pa": "ਸੂਚੀਬੱਧ ਹਸਪਤਾਲਾਂ ਵਿੱਚ ਪ੍ਰਤੀ ਪਰਿਵਾਰ ਪ੍ਰਤੀ ਸਾਲ ₹5 ਲੱਖ ਤੱਕ ਕੈਸ਼ਲੈੱਸ ਇਲਾਜ।" },
+      "anyOf": [
+        { "id": "senior_70", "all": ["age_70_plus"], "note": { "en": "All citizens aged 70+ are covered regardless of income (Ayushman Vay Vandana card).", "hi": "70+ उम्र के सभी नागरिक आय से परे कवर हैं (आयुष्मान वय वंदना कार्ड)।", "pa": "70+ ਉਮਰ ਦੇ ਸਾਰੇ ਨਾਗਰਿਕ ਆਮਦਨ ਤੋਂ ਪਰੇ ਕਵਰ ਹਨ (ਆਯੁਸ਼ਮਾਨ ਵਯ ਵੰਦਨਾ ਕਾਰਡ)।" } },
+        { "id": "auto_inclusion", "all": ["destitute_or_bonded"] },
+        { "id": "D1", "all": ["kutcha_house"] },
+        { "id": "D2", "all": ["no_working_adult"] },
+        { "id": "D3", "all": ["female_head_no_adult_male"] },
+        { "id": "D4", "all": ["disabled_no_able_adult"] },
+        { "id": "D5", "all": ["sc_st"] },
+        { "id": "D6", "all": ["no_literate_adult_25"] },
+        { "id": "D7", "all": ["landless_labour"] }
+      ],
+      "nextSteps": { "en": "Take Aadhaar and ration card to the Civil Hospital Ayushman desk or a Common Service Centre, or call 14555, to check your name and get your card.", "hi": "अपना नाम जाँचने और कार्ड बनवाने के लिए आधार और राशन कार्ड लेकर सिविल अस्पताल के आयुष्मान डेस्क या कॉमन सर्विस सेंटर जाएँ, या 14555 पर कॉल करें।", "pa": "ਆਪਣਾ ਨਾਮ ਜਾਂਚਣ ਅਤੇ ਕਾਰਡ ਬਣਵਾਉਣ ਲਈ ਆਧਾਰ ਅਤੇ ਰਾਸ਼ਨ ਕਾਰਡ ਲੈ ਕੇ ਸਿਵਲ ਹਸਪਤਾਲ ਦੇ ਆਯੁਸ਼ਮਾਨ ਡੈਸਕ ਜਾਂ ਕਾਮਨ ਸਰਵਿਸ ਸੈਂਟਰ ਜਾਓ, ਜਾਂ 14555 ਤੇ ਕਾਲ ਕਰੋ।" }
+    },
+    {
+      "id": "punjab_mmsby",
+      "name": { "en": "Punjab Mukh Mantri Sehat Bima Yojana", "hi": "पंजाब मुख्यमंत्री सेहत बीमा योजना", "pa": "ਪੰਜਾਬ ਮੁੱਖ ਮੰਤਰੀ ਸਿਹਤ ਬੀਮਾ ਯੋਜਨਾ" },
+      "benefit": { "en": "State scheme run together with PM-JAY in Punjab. Coverage amount and groups change — confirm online.", "hi": "पंजाब में PM-JAY के साथ चलने वाली राज्य योजना। कवरेज राशि और समूह बदलते रहते हैं — ऑनलाइन पुष्टि करें।", "pa": "ਪੰਜਾਬ ਵਿੱਚ PM-JAY ਦੇ ਨਾਲ ਚੱਲਣ ਵਾਲੀ ਰਾਜ ਯੋਜਨਾ। ਕਵਰੇਜ ਰਕਮ ਅਤੇ ਸਮੂਹ ਬਦਲਦੇ ਰਹਿੰਦੇ ਹਨ — ਔਨਲਾਈਨ ਪੁਸ਼ਟੀ ਕਰੋ।" },
+      "anyOf": [
+        { "id": "ration_card", "all": ["has_ration_card"] },
+        { "id": "occupational", "all": ["construction_worker_or_jform_farmer"] }
+      ],
+      "nextSteps": { "en": "Visit the Civil Hospital Nabha Ayushman/Sehat desk with Aadhaar and ration card or J-form / labour card.", "hi": "आधार और राशन कार्ड या जे-फ़ॉर्म / श्रमिक कार्ड के साथ सिविल अस्पताल नाभा के आयुष्मान/सेहत डेस्क पर जाएँ।", "pa": "ਆਧਾਰ ਅਤੇ ਰਾਸ਼ਨ ਕਾਰਡ ਜਾਂ ਜੇ-ਫ਼ਾਰਮ / ਮਜ਼ਦੂਰ ਕਾਰਡ ਨਾਲ ਸਿਵਲ ਹਸਪਤਾਲ ਨਾਭਾ ਦੇ ਆਯੁਸ਼ਮਾਨ/ਸਿਹਤ ਡੈਸਕ ਤੇ ਜਾਓ।" }
+    }
+  ]
+}

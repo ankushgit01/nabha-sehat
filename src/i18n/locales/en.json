@@ -1,0 +1,55 @@
+{
+  "app": { "name": "Nabha Sehat", "disclaimer": "This app gives guidance only. It is not a diagnosis. Always see a doctor if you are worried.", "reviewBanner": "Medical content is a draft awaiting doctor review." },
+  "common": { "next": "Next", "back": "Back", "cancel": "Cancel", "save": "Save", "done": "Done", "yes": "Yes", "no": "No", "listen": "Listen", "stop": "Stop", "retry": "Try again", "edit": "Change", "call": "Call", "close": "Close" },
+  "net": { "offline": "No internet – everything still works and will be sent later", "online": "Online", "syncing": "Sending saved data…", "synced": "All data sent" },
+  "sync": { "local_only": "Saved on this phone only", "pending": "Saved on this phone – will send when online", "synced": "Synced", "conflict": "Could not send – tap to see why" },
+  "lang": { "title": "Choose your language", "subtitle": "ਭਾਸ਼ਾ ਚੁਣੋ · भाषा चुनें · Choose language" },
+  "onboarding": {
+    "welcomeTitle": "Welcome",
+    "welcomeBody": "Tell us how you feel. We will tell you how urgent it is and what to do. Works without internet.",
+    "contactTitle": "Emergency contact",
+    "contactBody": "Who should we call and send your location to in an emergency?",
+    "contactName": "Name", "contactPhone": "Phone number", "skip": "Skip for now"
+  },
+  "tabs": { "home": "Home", "check": "Check", "records": "Records", "facilities": "Hospitals", "more": "More" },
+  "home": { "howFeel": "How are you feeling?", "checkSymptoms": "Check my symptoms", "sos": "SOS", "sosHint": "Emergency – get help now", "talkDoctor": "Talk to a doctor", "myRecords": "My health record", "schemes": "Ayushman card check", "hospitals": "Nearby hospitals", "firstAid": "First aid" },
+  "check": {
+    "title": "What is the problem?",
+    "speak": "Speak", "listening": "Listening… speak now", "type": "Type", "pickIcons": "Or tap where it hurts",
+    "typePlaceholder": "Write your problem here",
+    "detected": "We understood:", "noneDetected": "We could not understand. Please tap the pictures below.",
+    "who": "Who is sick?", "child": "Child (under 12)", "adult": "Adult", "elderly": "Older person (60+)",
+    "pregnant": "Pregnant?", "howLong": "Since how many days?", "days": "{{count}} days",
+    "checkNow": "Check now", "sttOffline": "Voice needs internet for this language. Please tap pictures or type.", "sttUnavailable": "Voice input is not available on this phone. Please tap pictures or type.",
+    "selected": "{{count}} selected"
+  },
+  "result": {
+    "title": "Result",
+    "emergency": "EMERGENCY – get help now", "urgent": "See a doctor TODAY", "routine": "See a doctor in the next few days", "self_care": "You can care for this at home",
+    "concerns": "Possibly related to:", "whatToDo": "What to do", "dont": "Do NOT",
+    "sosNow": "Call for help now", "consult": "Talk to a doctor", "consultOffline": "Request a doctor (will send when online)",
+    "schemeCheck": "Check free treatment (Ayushman)", "selfCareGeneric": "Rest, drink clean water, eat light food. If you feel worse, or new symptoms start, check again or see a doctor.",
+    "routineGeneric": "Visit the Civil Hospital OPD or talk to a doctor online. Take this record with you.",
+    "urgentGeneric": "Go to the hospital today. If it gets worse, press SOS.",
+    "speed": "Checked on this phone in {{ms}} ms", "decisionSupport": "Decision support, not a diagnosis"
+  },
+  "concern": { "neuro": "Brain & nerves", "cardiac": "Heart", "respiratory": "Lungs & breathing", "gastro": "Stomach & digestion", "urinary": "Urine", "infection": "Infection", "general": "General health", "skin": "Skin", "allergy": "Allergy", "injury": "Injury", "envenomation": "Venom / bite", "airway": "Airway", "poisoning": "Poisoning", "maternal": "Pregnancy" },
+  "sos": {
+    "title": "Emergency", "countdown": "Calling for help in {{s}}…", "sending": "Getting your location…",
+    "locOk": "Location found", "locFail": "Location not available – SMS will be sent without it",
+    "callNow": "Call now", "call108": "Ambulance 108", "callContact": "Call {{name}}", "sendSms": "Send location SMS",
+    "smsBody": "EMERGENCY. I need help. {{symptom}} Location: {{link}} (sent from Nabha Sehat app)", "smsBodyNoLoc": "EMERGENCY. I need help. {{symptom}} My location could not be found. Please call me. (Nabha Sehat app)",
+    "logged": "This emergency is saved on your phone", "noContact": "No emergency contact set – calling 108", "firstAidBelow": "While you wait – first aid"
+  },
+  "consult": {
+    "title": "Talk to a doctor", "mode": "How do you want to talk?", "chat": "Message", "audio": "Voice call", "video": "Video call",
+    "note": "Anything else to tell the doctor?", "request": "Request doctor",
+    "queuedOffline": "Saved. Will be sent to the doctor when you are back online.", "waiting": "Waiting for a doctor… position {{pos}}",
+    "active": "Doctor connected", "completed": "Consultation finished", "doctorNote": "Doctor's note", "prescription": "Prescription",
+    "videoNeedsNet": "Video needs internet. You can still send a message request.", "send": "Send", "join": "Join call", "cancelled": "Cancelled"
+  },
+  "records": { "title": "My health record", "empty": "Nothing saved yet", "search": "Search", "addDoc": "Add photo / document", "symptom_log": "Symptom check", "consultation": "Doctor consultation", "document": "Document", "sos_event": "Emergency" },
+  "schemes": { "title": "Free treatment check", "intro": "Answer a few questions to see if your family may get free hospital treatment.", "check": "Check", "likely": "You are LIKELY eligible", "unlikely": "You may not be eligible under these rules", "offlineLabel": "Based on general rules — confirm online when possible", "liveLabel": "Checked online", "nextSteps": "What to do next" },
+  "facilities": { "title": "Nearby hospitals", "mapOffline": "Map needs internet. Hospitals are listed below.", "unverified": "Number not verified – use 108 in emergency", "km": "{{km}} km", "noLocation": "Turn on location to sort by distance" },
+  "settings": { "title": "Settings", "language": "Language", "fontSize": "Text size", "contrast": "High contrast", "contacts": "Emergency contacts", "account": "Account", "register": "Register with phone number to back up your records", "phone": "Phone number", "sendOtp": "Send code", "otp": "Enter the code", "verify": "Verify", "anonymous": "Not registered – data stays on this phone", "registered": "Registered: {{phone}}", "encryption": "Storage encryption", "encOn": "On", "encOff": "Off on this device", "syncNow": "Send data now", "modelInfo": "Triage model" }
+}
