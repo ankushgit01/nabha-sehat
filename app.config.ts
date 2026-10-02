@@ -1,4 +1,4 @@
-﻿import type { ExpoConfig } from 'expo/config';
+import type { ExpoConfig } from 'expo/config';
 
 const config: ExpoConfig = {
   name: 'Nabha Sehat',
@@ -26,8 +26,11 @@ const config: ExpoConfig = {
   extra: {
     apiUrl: process.env.EXPO_PUBLIC_API_URL ?? 'https://api.example.org',
     triageEngine: 'js',
+    eas: { projectId: '2c152537-9d8a-4be6-8379-79eac2238954' },
   },
   experiments: { typedRoutes: true },
+  updates: { url: 'https://u.expo.dev/2c152537-9d8a-4be6-8379-79eac2238954' },
+  runtimeVersion: 'exposdk:57.0.0',
 };
 
 export default config;
