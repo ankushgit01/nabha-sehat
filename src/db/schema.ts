@@ -26,6 +26,12 @@ export const TABLES = {
       id: 'TEXT',
       phone: 'TEXT',
       name: 'TEXT',
+      age: 'INTEGER',
+      gender: 'TEXT',
+      village: 'TEXT',
+      blood_group: 'TEXT',
+      conditions: 'JSON',
+      allergies: 'TEXT',
       preferred_language: 'TEXT',
       registration_status: 'TEXT',
       created_at: 'TEXT',
@@ -123,10 +129,20 @@ export const TABLES = {
 } as const satisfies Record<string, TableDef>;
 
 export type TableName = keyof typeof TABLES;
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 2;
 
 /** Append-only list; index i migrates from version i to i+1. */
-export const MIGRATIONS: string[][] = [];
+export const MIGRATIONS: string[][] = [
+  // 1 -> 2: patient profile fields on users
+  [
+    'ALTER TABLE "users" ADD COLUMN "age" INTEGER;',
+    'ALTER TABLE "users" ADD COLUMN "gender" TEXT;',
+    'ALTER TABLE "users" ADD COLUMN "village" TEXT;',
+    'ALTER TABLE "users" ADD COLUMN "blood_group" TEXT;',
+    'ALTER TABLE "users" ADD COLUMN "conditions" TEXT;',
+    'ALTER TABLE "users" ADD COLUMN "allergies" TEXT;',
+  ],
+];
 
 export function createTableSql(name: TableName): string[] {
   const def: TableDef = TABLES[name];

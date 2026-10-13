@@ -1,4 +1,4 @@
-﻿/** Production entry point (used by Render and `npm start`). */
+/** Production entry point (used by Render and `npm start`). */
 import { config } from './config';
 import { connect } from './db';
 import { createApp } from './server';

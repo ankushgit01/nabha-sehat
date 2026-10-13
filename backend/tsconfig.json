@@ -15,6 +15,7 @@
     "test/**/*.ts",
     "../src/features/sync/merge.ts",
     "../src/features/schemes/evaluate.ts",
-    "../src/db/types.ts"
+    "../src/db/types.ts",
+    "../src/features/records/csv.ts"
   ]
 }

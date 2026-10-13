@@ -8,12 +8,16 @@ import { auth } from './routes/auth';
 import { sync } from './routes/sync';
 import { consultations, doctor } from './routes/consultations';
 import { facilities, files, schemes } from './routes/misc';
+import { me } from './routes/me';
+import { admin } from './routes/admin';
 
 export function createApp() {
   const app = express();
   app.set('trust proxy', 1);
   app.use(helmet());
-  app.use(cors({ origin: config.corsOrigins.length ? config.corsOrigins : false }));
+  // CORS_ORIGINS='*' allows any origin (native apps send no Origin header anyway).
+  const origins = config.corsOrigins;
+  app.use(cors({ origin: origins.includes('*') ? true : origins.length ? origins : false }));
   app.use(express.json({ limit: '1mb' }));
   if (config.prod) app.use(pinoHttp({ redact: ['req.headers.authorization', 'req.body'] })); // never log health data
 
@@ -25,6 +29,8 @@ export function createApp() {
   app.use('/v1/schemes', schemes);
   app.use('/v1/facilities', facilities);
   app.use('/v1/files', files);
+  app.use('/v1/me', me);
+  app.use('/v1/admin', admin);
 
   app.use((err: Error, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
     console.error(err);

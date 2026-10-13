@@ -7,6 +7,7 @@ import Constants from 'expo-constants';
 import type { Consultation, Facility } from '../db/types';
 import type { PullResponse, PushItem, PushResultItem, SyncApi } from '../features/sync/syncEngine';
 import type { Answers, EligibilityOutcome, RuleSet } from '../features/schemes/eligibility';
+import type { Profile } from '../features/profile/profile';
 
 const BASE_URL: string = (Constants.expoConfig?.extra?.apiUrl as string) ?? 'https://api.example.org';
 
@@ -14,6 +15,8 @@ export interface AuthTokens {
   token: string;
   userId: string;
   phone: string;
+  role?: string;
+  profile?: (Partial<Profile> & { id: string; phone: string | null }) | null;
 }
 
 export function createApi(getToken: () => string | null) {
@@ -44,9 +47,16 @@ export function createApi(getToken: () => string | null) {
   return {
     sync,
     auth: {
-      requestOtp: (phone: string) => http.post('/auth/otp/request', { phone }),
+      /** In demo mode the server returns the code so the app can display it. */
+      requestOtp: async (phone: string) =>
+        (await http.post<{ ok: boolean; mode: string; demoCode?: string }>('/auth/otp/request', { phone })).data,
       verifyOtp: async (phone: string, code: string, deviceUserId: string) =>
         (await http.post<AuthTokens>('/auth/otp/verify', { phone, code, deviceUserId })).data,
+    },
+    me: {
+      get: async () => (await http.get<{ profile: Partial<Profile> }>('/me')).data.profile,
+      put: async (p: Partial<Profile> & { preferred_language?: string }) =>
+        (await http.put<{ profile: Partial<Profile> }>('/me', p)).data.profile,
     },
     consultations: {
       queueStatus: async (id: string) =>

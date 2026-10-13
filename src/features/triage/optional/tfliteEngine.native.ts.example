@@ -1,0 +1,32 @@
+/**
+ * OPTIONAL TFLite engine (EXPO_PUBLIC_TRIAGE_ENGINE=tflite).
+ *
+ * Library check (Oct 2026): react-native-fast-tflite 3.0.1 (Apr 2026) is actively
+ * maintained, migrated to Nitro Modules and supports the new architecture/bridgeless —
+ * the right choice for Expo SDK 57 / RN 0.86. It is a native module, so it requires a
+ * custom dev client built with EAS (`eas build --profile development`); it will NOT
+ * run in Expo Go. No eject/bare workflow is needed.
+ * @tensorflow/tfjs-react-native was not chosen: its last meaningful release predates
+ * the new architecture and it pulls in expo-gl.
+ *
+ * Setup: `npx expo install react-native-fast-tflite react-native-nitro-modules`, add
+ * 'tflite' to metro `resolver.assetExts`, run `python ml/train.py` with TensorFlow
+ * installed to emit triage_mlp_v1.tflite, then rebuild the dev client.
+ */
+import type { UrgencyEngine } from './classifier';
+
+export async function createTfliteEngine(): Promise<UrgencyEngine> {
+  // Dynamic require so the JS engine path never loads the native module.
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const { loadTensorflowModel } = require('react-native-fast-tflite') as {
+    loadTensorflowModel(src: number): Promise<{ runSync(inputs: Float32Array[]): ArrayLike<number>[] }>;
+  };
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
+  const model = await loadTensorflowModel(require('../../assets/models/triage_mlp_v1.tflite'));
+  return {
+    version: 'triage-mlp-1-tflite',
+    predict(x: Float32Array) {
+      return Array.from(model.runSync([x])[0]!);
+    },
+  };
+}

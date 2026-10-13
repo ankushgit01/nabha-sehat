@@ -1,7 +1,16 @@
-﻿/**
- * Voice I/O - the ONE interface for speech. TTS via expo-speech (works in Expo Go).
- * STT via expo-speech-recognition, only when its native module exists (NOT in Expo Go);
- * otherwise the mic button is disabled with a hint and icons/text remain the input.
+/**
+ * Voice I/O — the ONE interface for speech (spec §10). Feature code never imports
+ * expo-speech / expo-speech-recognition directly.
+ *
+ * TTS: expo-speech (on-device; Android/iOS system voices, Web Speech API on web).
+ *      Punjabi (pa-IN) voices are often NOT installed on low-end Android phones;
+ *      Hindi usually is. `canSpeak(lang)` checks, and the UI hides the speaker
+ *      button (text stays visible) when no voice exists — graceful fallback.
+ * STT: expo-speech-recognition (Android SpeechRecognizer / iOS SFSpeechRecognizer /
+ *      Web Speech API). Offline recognition is only available where the OS has an
+ *      on-device model for that language (commonly en/hi on Android 13+, rarely pa).
+ *      When unavailable, the mic button is disabled with a hint, and icon/text
+ *      input (which needs no network and no permission) remains the primary path.
  */
 import * as Speech from 'expo-speech';
 import { requireOptionalNativeModule } from 'expo';
@@ -9,6 +18,8 @@ import type { Lang } from '../db/types';
 
 export const LOCALE: Record<Lang, string> = { pa: 'pa-IN', hi: 'hi-IN', en: 'en-IN' };
 
+// Expo Go doesn't contain the speech-recognition native module. Check for the native
+// module FIRST (no throw, no red error box) and only then load the JS package.
 type SR = typeof import('expo-speech-recognition');
 let sr: SR | null | undefined;
 function speechRecognition(): SR | null {
@@ -33,6 +44,7 @@ export async function canSpeak(lang: Lang): Promise<boolean> {
   try {
     const voices = await Speech.getAvailableVoicesAsync();
     const prefix = LOCALE[lang].slice(0, 2);
+    // Some Android engines report no voice list but still speak; treat empty list as "try".
     const ok = voices.length === 0 ? lang !== 'pa' : voices.some((v) => v.language?.toLowerCase().startsWith(prefix));
     voiceCache.set(lang, ok);
     return ok;
@@ -66,6 +78,7 @@ export async function sttAvailability(lang: Lang, online: boolean): Promise<SttA
     const onDevice = mod.supportsOnDeviceRecognition();
     if (!online && !onDevice) return { available: false, onDevice: false, reason: 'needs_network' };
     if (!online && onDevice) {
+      // Check the specific language has an installed offline model.
       const { installedLocales } = await mod.getSupportedLocales({});
       const has = installedLocales.some((l: string) => l.toLowerCase().startsWith(LOCALE[lang].slice(0, 2)));
       if (!has) return { available: false, onDevice: false, reason: 'needs_network' };
@@ -105,6 +118,12 @@ export async function listen(
     mod.addListener('error', (e: { error: string }) => cb.onError(e.error)),
     mod.addListener('end', () => subs.forEach((s) => s.remove())),
   ];
-  mod.start({ lang: LOCALE[lang], interimResults: true, continuous: false, requiresOnDeviceRecognition: !online, addsPunctuation: false });
+  mod.start({
+    lang: LOCALE[lang],
+    interimResults: true,
+    continuous: false,
+    requiresOnDeviceRecognition: !online,
+    addsPunctuation: false,
+  });
   return { stop: () => mod.stop() };
 }

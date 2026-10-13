@@ -14,6 +14,7 @@ import { useApp } from '../../src/app-state/AppContext';
 import { BODY_PARTS, SYMPTOMS, SYMPTOM_BY_ID } from '../../src/features/triage/vocab';
 import { symptomIdsFromText } from '../../src/features/triage/textToSymptoms';
 import { runTriage } from '../../src/features/triage/triageService';
+import { defaultModifiers } from '../../src/features/profile/profile';
 import { speak } from '../../src/platform/voice';
 import { VoiceInput } from '../../src/components/VoiceInput';
 import { BigButton, Disclaimer, Icon, OfflineBanner, SpeakButton, styles } from '../../src/components/ui';
@@ -24,13 +25,14 @@ const DURATIONS = [1, 3, 7, 14, 30];
 export default function SymptomCheck() {
   const { t } = useTranslation();
   const theme = useTheme();
-  const { lang, repo } = useApp();
+  const { lang, repo, profile } = useApp();
   const [text, setText] = useState('');
   const [transcript, setTranscript] = useState<string | null>(null);
   const [picked, setPicked] = useState<Set<string>>(new Set());
   const [removed, setRemoved] = useState<Set<string>>(new Set());
   const [part, setPart] = useState<string | null>(null);
-  const [mods, setMods] = useState<TriageModifiers>({ age_group: 'adult', pregnant: false, duration_days: 1 });
+  // Pre-filled from the patient's profile (age → child/adult/elderly, pregnancy); still editable.
+  const [mods, setMods] = useState<TriageModifiers>(() => defaultModifiers(profile));
   const [busy, setBusy] = useState(false);
 
   const fromText = useMemo(() => symptomIdsFromText(`${text} ${transcript ?? ''}`), [text, transcript]);

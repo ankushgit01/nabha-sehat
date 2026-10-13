@@ -12,13 +12,15 @@ import { useApp } from '../../src/app-state/AppContext';
 import { LANGUAGES } from '../../src/i18n';
 import { defaultEngine } from '../../src/features/triage/classifier';
 import { BigButton, OfflineBanner, styles } from '../../src/components/ui';
+import { PhoneLogin } from '../../src/components/PhoneLogin';
+import { ProfileForm } from '../../src/components/ProfileForm';
+import { buildMyRecordsCsv } from '../../src/features/records/exportRecords';
+import { saveAndShareText } from '../../src/platform/share';
+import { SYMPTOM_BY_ID } from '../../src/features/triage/vocab';
 
 export default function More() {
   const { t } = useTranslation();
   const app = useApp();
-  const [phone, setPhone] = useState('');
-  const [code, setCode] = useState('');
-  const [otpSent, setOtpSent] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   const [cName, setCName] = useState('');
   const [cPhone, setCPhone] = useState('');
@@ -71,49 +73,35 @@ export default function More() {
 
         <Text variant="titleLarge">{t('settings.account')}</Text>
         {app.auth ? (
-          <Text>{t('settings.registered', { phone: app.auth.phone })}</Text>
+          <View style={{ gap: 8 }}>
+            <Text>✅ {t('profile.loggedInAs', { phone: app.auth.phone })}</Text>
+            <BigButton icon="logout" label={t('profile.logout')} color="transparent" onPress={() => void app.signOut()} />
+          </View>
         ) : (
           <View style={{ gap: 8 }}>
             <Text>{t('settings.anonymous')}</Text>
             <Text variant="bodySmall">{t('settings.register')}</Text>
-            <TextInput mode="outlined" label={t('settings.phone')} value={phone} onChangeText={setPhone} keyboardType="phone-pad" left={<TextInput.Affix text="+91" />} />
-            {!otpSent ? (
-              <BigButton
-                icon="message-lock"
-                label={t('settings.sendOtp')}
-                disabled={!app.online || phone.replace(/\D/g, '').length !== 10}
-                onPress={async () => {
-                  setErr(null);
-                  try {
-                    await app.api.auth.requestOtp(`+91${phone.replace(/\D/g, '')}`);
-                    setOtpSent(true);
-                  } catch (e) {
-                    setErr(String(e));
-                  }
-                }}
-              />
-            ) : (
-              <>
-                <TextInput mode="outlined" label={t('settings.otp')} value={code} onChangeText={setCode} keyboardType="number-pad" />
-                <BigButton
-                  icon="check-decagram"
-                  label={t('settings.verify')}
-                  onPress={async () => {
-                    setErr(null);
-                    try {
-                      const a = await app.api.auth.verifyOtp(`+91${phone.replace(/\D/g, '')}`, code, app.userId);
-                      await app.signIn(a);
-                    } catch (e) {
-                      setErr(String(e));
-                    }
-                  }}
-                />
-              </>
-            )}
-            {!app.online && <HelperText type="info">{t('net.offline')}</HelperText>}
-            {err && <HelperText type="error">{err}</HelperText>}
+            <PhoneLogin />
           </View>
         )}
+        <List.Accordion title={t('profile.edit')} left={(p) => <List.Icon {...p} icon="account-edit" />}>
+          <ProfileForm />
+        </List.Accordion>
+        <BigButton
+          testID="export-csv"
+          icon="file-delimited"
+          label={t('records.exportCsv')}
+          onPress={async () => {
+            try {
+              const { csv, count } = await buildMyRecordsCsv(app.store, { profile: app.profile, phone: app.auth?.phone ?? null }, (id) => SYMPTOM_BY_ID.get(id)?.label[app.lang] ?? id);
+              await saveAndShareText(`nabha_my_records_${new Date().toISOString().slice(0, 10)}.csv`, csv);
+              setErr(t('records.exported', { count }));
+            } catch {
+              setErr(t('records.exportFailed'));
+            }
+          }}
+        />
+        {err && <HelperText type="info">{err}</HelperText>}
         {app.auth && (
           <BigButton icon="cloud-sync" label={t('settings.syncNow')} disabled={!app.online || app.syncing} onPress={() => void app.syncNow()} />
         )}

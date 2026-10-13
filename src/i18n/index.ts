@@ -49,6 +49,8 @@ export function fontFor(lang: Lang) {
   return LANGUAGES.find((l) => l.code === lang)?.fontFamily;
 }
 
-export default i18n;
-
+// Initialise immediately so components rendered before settings load never see
+// "NO_I18NEXT_INSTANCE"; AppProvider switches to the saved language right after.
 initI18n(DEFAULT_LANG);
+
+export default i18n;

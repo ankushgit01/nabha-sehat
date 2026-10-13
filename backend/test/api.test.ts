@@ -16,6 +16,8 @@ let app: ReturnType<typeof createApp>;
 
 before(async () => {
   process.env.DOCTOR_PHONES = '+919999999999';
+  process.env.OTP_MODE = 'demo';
+  process.env.ADMIN_KEY = 'test-admin-key';
   mongo = await MongoMemoryServer.create();
   await connect(mongo.getUri(), 'test');
   app = createApp();
@@ -26,12 +28,8 @@ after(async () => {
 });
 
 async function login(phone: string) {
-  const logs: string[] = [];
-  const orig = console.warn;
-  console.warn = (m: string) => logs.push(m);
-  await request(app).post('/v1/auth/otp/request').send({ phone }).expect(200);
-  console.warn = orig;
-  const code = logs.join(' ').match(/(\d{6})/)![1];
+  const r = await request(app).post('/v1/auth/otp/request').send({ phone }).expect(200);
+  const code = r.body.demoCode as string; // OTP_MODE=demo in tests
   return (await request(app).post('/v1/auth/otp/verify').send({ phone, code }).expect(200)).body as { token: string; userId: string };
 }
 
@@ -72,4 +70,25 @@ test("a user cannot push another user's record", async () => {
     .send({ items: [{ table: 'sos_events', base: null, record: { id: randomUUID(), user_id: 'someone-else', created_at: now } }] })
     .expect(200);
   assert.equal(r.body.results[0].status, 'rejected');
+});
+
+test('profile save + admin CSV export joins age/gender', async () => {
+  const p = await login('+919822222222');
+  await request(app).put('/v1/me').set('Authorization', `Bearer ${p.token}`)
+    .send({ name: 'Gurpreet', age: 34, gender: 'female', village: 'Bhadson', conditions: ['diabetes'] }).expect(200);
+  const now = new Date().toISOString();
+  await request(app).post('/v1/sync/push').set('Authorization', `Bearer ${p.token}`).send({ items: [{ table: 'symptom_logs', base: null, record: {
+    id: randomUUID(), user_id: p.userId, created_at: now, updated_at: now, server_updated_at: null, sync_status: 'pending',
+    input_text: 'fever', transcript: null, input_language: 'pa', selected_symptoms: ['fever'], modifiers: {}, urgency: 'self_care',
+    confidence: 0.9, concern_areas: [], red_flags: [], model_version: 'triage-mlp-1', inference_ms: 1, advice_topic: null } }] }).expect(200);
+  await request(app).get('/v1/admin/export/symptom_logs.csv').expect(401);
+  const csv = (await request(app).get('/v1/admin/export/symptom_logs.csv').set('x-admin-key', 'test-admin-key').expect(200)).text;
+  assert.match(csv, /Gurpreet/);
+  assert.match(csv, /female/);
+  assert.match(csv, /\+919822222222/);
+});
+
+test('wrong OTP is rejected', async () => {
+  await request(app).post('/v1/auth/otp/request').send({ phone: '+919833333333' }).expect(200);
+  await request(app).post('/v1/auth/otp/verify').send({ phone: '+919833333333', code: '000000' }).expect(401);
 });

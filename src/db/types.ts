@@ -26,6 +26,12 @@ export interface User {
   id: string;
   phone: string | null;
   name: string | null;
+  age: number | null;
+  gender: 'male' | 'female' | 'other' | null;
+  village: string | null;
+  blood_group: string | null;
+  conditions: string[];
+  allergies: string | null;
   preferred_language: Lang;
   registration_status: 'anonymous' | 'registered';
   created_at: string;

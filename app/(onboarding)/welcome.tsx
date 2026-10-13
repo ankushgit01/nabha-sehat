@@ -13,13 +13,13 @@ import { BigButton, Disclaimer, SpeakButton } from '../../src/components/ui';
 
 export default function Welcome() {
   const { t } = useTranslation();
-  const { saveContact, completeOnboarding } = useApp();
+  const { saveContact } = useApp();
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const finish = async () => {
     if (phone.replace(/\D/g, '').length >= 10) await saveContact({ name: name || phone, phone, relation: null });
-    await completeOnboarding();
-    router.replace('/(tabs)/home');
+    // Next: phone login + patient details (optional, can be skipped).
+    router.replace('/(onboarding)/profile');
   };
   return (
     <SafeAreaView style={{ flex: 1 }}>

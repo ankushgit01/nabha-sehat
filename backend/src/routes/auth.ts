@@ -6,19 +6,32 @@ import { getDb } from '../db';
 import { config } from '../config';
 import { checkOtp, sendOtp } from '../services/notify';
 import { sign } from '../middleware/auth';
+import { publicProfile } from './me';
 
 export const auth = Router();
 const phone = z.string().regex(/^\+91\d{10}$/);
-const otpLimiter = rateLimit({ windowMs: 15 * 60_000, limit: 5, standardHeaders: true, legacyHeaders: false });
+// Per phone number: max 5 OTP requests / verifications per 15 min. Plus a looser per-IP cap.
+const otpLimiter = rateLimit({
+  windowMs: 15 * 60_000,
+  limit: 5,
+  standardHeaders: true,
+  legacyHeaders: false,
+  keyGenerator: (req) => `phone:${String(req.body?.phone ?? '')}`,
+});
+const ipLimiter = rateLimit({ windowMs: 15 * 60_000, limit: 60, standardHeaders: true, legacyHeaders: false });
 
-auth.post('/otp/request', otpLimiter, async (req, res) => {
+auth.post('/otp/request', ipLimiter, otpLimiter, async (req, res) => {
   const p = phone.safeParse(req.body?.phone);
   if (!p.success) return res.status(400).json({ error: 'invalid phone' });
-  await sendOtp(p.data);
-  res.json({ ok: true });
+  try {
+    const { demoCode } = await sendOtp(p.data);
+    res.json({ ok: true, mode: config.otpMode, ...(demoCode ? { demoCode } : {}) });
+  } catch (e) {
+    res.status(503).json({ error: e instanceof Error ? e.message : 'otp unavailable' });
+  }
 });
 
-auth.post('/otp/verify', otpLimiter, async (req, res) => {
+auth.post('/otp/verify', ipLimiter, rateLimit({ windowMs: 15 * 60_000, limit: 10, standardHeaders: true, legacyHeaders: false, keyGenerator: (req) => `verify:${String(req.body?.phone ?? '')}` }), async (req, res) => {
   const body = z
     .object({ phone, code: z.string().regex(/^\d{4,8}$/), deviceUserId: z.string().uuid().optional() })
     .safeParse(req.body);
@@ -36,5 +49,12 @@ auth.post('/otp/verify', otpLimiter, async (req, res) => {
     { $set: { phone: body.data.phone, registration_status: 'registered', role, updated_at: now }, $setOnInsert: { created_at: now } },
     { upsert: true },
   );
-  res.json({ token: sign({ id, phone: body.data.phone, role }), userId: id, phone: body.data.phone });
+  const profile = await users.findOne({ _id: id });
+  res.json({
+    token: sign({ id, phone: body.data.phone, role }),
+    userId: id,
+    phone: body.data.phone,
+    role,
+    profile: profile ? publicProfile(profile as never) : null,
+  });
 });

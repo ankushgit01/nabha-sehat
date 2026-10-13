@@ -18,6 +18,8 @@ import facilitySeed from '../features/facilities/seed.json';
 import Constants from 'expo-constants';
 import { setEngine } from '../features/triage/classifier';
 import { createTfliteEngine } from '../features/triage/tfliteEngine';
+import { EMPTY_PROFILE, Profile } from '../features/profile/profile';
+import type { AuthTokens } from '../api/client';
 
 const K = {
   lang: 'pref.lang',
@@ -26,6 +28,8 @@ const K = {
   contrast: 'pref.highContrast',
   deviceUser: 'id.deviceUser',
   auth: 'id.auth',
+  profile: 'id.profile',
+  profileDirty: 'id.profileDirty',
 } as const;
 
 interface Auth {
@@ -49,7 +53,11 @@ export interface AppState {
   api: Api;
   userId: string;
   auth: Auth | null;
-  signIn(a: Auth): Promise<void>;
+  signIn(a: AuthTokens): Promise<void>;
+  signOut(): Promise<void>;
+  /** Patient profile (name, age, gender, …). Saved on the phone first, synced when online. */
+  profile: Profile | null;
+  saveProfile(p: Profile): Promise<void>;
   online: boolean;
   syncing: boolean;
   lastSync: SyncReport | null;
@@ -84,6 +92,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [lastSync, setLastSync] = useState<SyncReport | null>(null);
   const [contacts, setContacts] = useState<EmergencyContact[]>([]);
   const [facilities, setFacilities] = useState<Facility[]>(facilitySeed.facilities as Facility[]);
+  const [profile, setProfile] = useState<Profile | null>(null);
+  const profileRef = useRef<Profile | null>(null);
+  profileRef.current = profile;
 
   const authRef = useRef<Auth | null>(null);
   authRef.current = auth;
@@ -109,6 +120,15 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     if (!authRef.current) return; // anonymous: local only
     setSyncing(true);
     try {
+      // Push a profile edited while offline.
+      if ((await AsyncStorage.getItem(K.profileDirty)) === '1' && profileRef.current) {
+        try {
+          await api.me.put(profileRef.current);
+          await AsyncStorage.removeItem(K.profileDirty);
+        } catch {
+          /* retry next sync */
+        }
+      }
       const r = await runSync(store, api.sync);
       setLastSync(r);
       // Refresh facility directory opportunistically (cached for offline use).
@@ -130,14 +150,16 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     (async () => {
       await store.init();
-      const [[, l], [, ob], [, fs], [, hc], [, du], [, au]] = await AsyncStorage.multiGet([
+      const [[, l], [, ob], [, fs], [, hc], [, du], [, au], [, pr]] = await AsyncStorage.multiGet([
         K.lang,
         K.onboarded,
         K.fontScale,
         K.contrast,
         K.deviceUser,
         K.auth,
+        K.profile,
       ]);
+      if (pr) setProfile({ ...EMPTY_PROFILE, ...(JSON.parse(pr) as Partial<Profile>) });
       const language = (l as Lang | null) ?? DEFAULT_LANG;
       initI18n(language);
       setLangState(language);
@@ -198,13 +220,59 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     api,
     userId,
     auth,
-    async signIn(a) {
+    async signIn(t) {
+      const a: Auth = { token: t.token, userId: t.userId, phone: t.phone };
       await AsyncStorage.setItem(K.auth, JSON.stringify(a));
       setAuth(a);
       authRef.current = a;
       identityRef.current = { userId: a.userId, registered: true };
+      // Returning user on a new phone: adopt the profile saved on the server if we have none.
+      const server = t.profile;
+      const local = profileRef.current;
+      const localEmpty = !local || (!local.name && local.age === null && !local.gender);
+      if (server && localEmpty && (server.name || server.age != null || server.gender)) {
+        const merged: Profile = { ...EMPTY_PROFILE, ...(server as Partial<Profile>), conditions: server.conditions ?? [] };
+        setProfile(merged);
+        profileRef.current = merged;
+        await AsyncStorage.setItem(K.profile, JSON.stringify(merged));
+      } else if (local) {
+        await AsyncStorage.setItem(K.profileDirty, '1');
+      }
       await promoteLocalOnly(store, a.userId);
       void syncNow();
+    },
+    async signOut() {
+      // Records stay on this phone (they are the patient's safety history); only the login is removed.
+      await AsyncStorage.removeItem(K.auth);
+      setAuth(null);
+      authRef.current = null;
+      identityRef.current = { userId: deviceUserId, registered: false };
+    },
+    profile,
+    async saveProfile(p) {
+      // Local first (works offline), then server if possible.
+      setProfile(p);
+      profileRef.current = p;
+      await AsyncStorage.setItem(K.profile, JSON.stringify(p));
+      const now = new Date().toISOString();
+      await store.put('users', {
+        id: authRef.current?.userId ?? deviceUserId,
+        phone: authRef.current?.phone ?? null,
+        ...p,
+        preferred_language: lang,
+        registration_status: authRef.current ? 'registered' : 'anonymous',
+        created_at: now,
+        updated_at: now,
+      });
+      await AsyncStorage.setItem(K.profileDirty, '1');
+      if (authRef.current && online) {
+        try {
+          await api.me.put({ ...p, preferred_language: lang });
+          await AsyncStorage.removeItem(K.profileDirty);
+        } catch {
+          /* stays dirty; pushed on next sync */
+        }
+      }
     },
     online,
     syncing,
