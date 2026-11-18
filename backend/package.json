@@ -12,6 +12,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^1.10.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "express-rate-limit": "^8.0.0",
@@ -20,9 +21,9 @@
     "mongodb": "^6.18.0",
     "multer": "^2.0.0",
     "pino-http": "^10.4.0",
+    "tsx": "^4.20.0",
     "twilio": "^5.8.0",
-    "zod": "^4.0.0",
-    "tsx": "^4.20.0"
+    "zod": "^4.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
@@ -30,9 +31,9 @@
     "@types/jsonwebtoken": "^9.0.7",
     "@types/multer": "^2.0.0",
     "@types/node": "^22.0.0",
+    "@types/supertest": "^6.0.2",
     "mongodb-memory-server": "^10.1.0",
     "supertest": "^7.1.0",
-    "@types/supertest": "^6.0.2",
     "typescript": "~5.9.0"
   },
   "engines": {

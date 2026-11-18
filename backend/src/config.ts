@@ -34,6 +34,10 @@ export const config = {
   get adminKey() {
     return process.env.ADMIN_KEY ?? '';
   },
+  /** Claude API key for /v1/ai/check (photo + symptom first-aid guidance). Unset = feature off. */
+  get anthropicKey() {
+    return process.env.ANTHROPIC_API_KEY ?? '';
+  },
   /** Read lazily so tests / config reloads can change it. */
   get doctorPhones() {
     return new Set((process.env.DOCTOR_PHONES ?? '').split(',').filter(Boolean));

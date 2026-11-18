@@ -60,7 +60,8 @@
     "myRecords": "My health record",
     "schemes": "Ayushman card check",
     "hospitals": "Nearby hospitals",
-    "firstAid": "First aid"
+    "firstAid": "First aid",
+    "photoCheck": "Photo check (cut, burn, rash, pain)"
   },
   "check": {
     "title": "What is the problem?",
@@ -241,5 +242,31 @@
     "edit": "Edit my details",
     "loggedInAs": "Logged in: {{phone}}",
     "invalidAge": "Enter age between 0 and 120"
+  },
+  "photo": {
+    "intro": "Take a photo of the problem (cut, burn, rash, bite) or write what you feel (headache, fever). You will get simple first-aid steps.",
+    "takePhoto": "Take photo",
+    "gallery": "From gallery",
+    "yourPhoto": "Your photo",
+    "describe": "What is the problem? (optional with photo)",
+    "describePlaceholder": "e.g. cut my finger with a knife, bleeding a little",
+    "check": "Check now",
+    "checking": "Checking… (can take up to a minute)",
+    "again": "Check something else",
+    "steps": "What to do",
+    "avoid": "Do NOT do",
+    "doctorIf": "Go to a doctor if",
+    "noCamera": "Camera permission is needed to take a photo. You can choose from the gallery instead.",
+    "needLogin": "Please log in with your phone number to use photo check.",
+    "offline": "Photo check needs internet. Use the first aid guides below, or press SOS in an emergency.",
+    "errBusy": "Too many checks right now. Please try again later.",
+    "errPhoto": "This photo could not be read. Try a clearer, closer photo in good light.",
+    "errGeneric": "Could not check right now. Please try again. If it is serious, press SOS or call 108.",
+    "urgency": {
+      "emergency": "Emergency – call 108 or go to hospital now",
+      "see_doctor_today": "See a doctor today",
+      "see_doctor_soon": "See a doctor in the next few days",
+      "home_care": "Can be cared for at home"
+    }
   }
 }

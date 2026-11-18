@@ -10,6 +10,7 @@ import { consultations, doctor } from './routes/consultations';
 import { facilities, files, schemes } from './routes/misc';
 import { me } from './routes/me';
 import { admin } from './routes/admin';
+import { ai } from './routes/ai';
 
 export function createApp() {
   const app = express();
@@ -18,6 +19,8 @@ export function createApp() {
   // CORS_ORIGINS='*' allows any origin (native apps send no Origin header anyway).
   const origins = config.corsOrigins;
   app.use(cors({ origin: origins.includes('*') ? true : origins.length ? origins : false }));
+  // Mounted before the global 1 MB JSON parser: it takes photos (own 9 MB limit) and is never logged.
+  app.use('/v1/ai', ai);
   app.use(express.json({ limit: '1mb' }));
   if (config.prod) app.use(pinoHttp({ redact: ['req.headers.authorization', 'req.body'] })); // never log health data
 

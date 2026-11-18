@@ -19,6 +19,25 @@ export interface AuthTokens {
   profile?: (Partial<Profile> & { id: string; phone: string | null }) | null;
 }
 
+export interface AiCheckRequest {
+  image?: { data: string; mediaType: 'image/jpeg' | 'image/png' | 'image/webp' };
+  text?: string;
+  lang: 'en' | 'hi' | 'pa';
+  ageGroup?: 'child' | 'adult' | 'elderly';
+  pregnant?: boolean;
+}
+
+/** Mirrors the `Advice` schema in backend/src/routes/ai.ts. */
+export interface AiAdvice {
+  urgency: 'emergency' | 'see_doctor_today' | 'see_doctor_soon' | 'home_care';
+  unclear: boolean;
+  title: string;
+  what_we_see: string;
+  steps: string[];
+  avoid: string[];
+  go_to_doctor_if: string[];
+}
+
 export function createApi(getToken: () => string | null) {
   const http: AxiosInstance = axios.create({ baseURL: `${BASE_URL}/v1`, timeout: 15_000 });
   http.interceptors.request.use((cfg) => {
@@ -74,6 +93,11 @@ export function createApi(getToken: () => string | null) {
     },
     facilities: {
       list: async () => (await http.get<{ facilities: Facility[] }>('/facilities')).data.facilities,
+    },
+    ai: {
+      /** Photo and/or description → first-aid guidance. Slow (AI + possible server wake-up), so long timeout. */
+      check: async (req: AiCheckRequest) =>
+        (await http.post<{ advice: AiAdvice }>('/ai/check', req, { timeout: 120_000 })).data.advice,
     },
   };
 }

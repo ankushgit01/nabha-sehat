@@ -58,6 +58,7 @@ function Shell() {
         <Stack.Screen name="schemes" options={{ title: t('schemes.title') }} />
         <Stack.Screen name="first-aid/index" options={{ title: t('home.firstAid') }} />
         <Stack.Screen name="first-aid/[topic]" options={{ title: t('home.firstAid') }} />
+        <Stack.Screen name="photo-check" options={{ title: t('home.photoCheck') }} />
       </Stack>
     </PaperProvider>
   );

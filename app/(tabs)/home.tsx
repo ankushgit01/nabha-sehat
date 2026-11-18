@@ -20,6 +20,7 @@ export default function Home() {
           {t('home.howFeel')} <SpeakButton text={t('home.howFeel')} />
         </Text>
         <BigButton testID="home-check" icon="stethoscope" label={t('home.checkSymptoms')} height={96} onPress={() => router.push('/(tabs)/symptom-check')} />
+        <BigButton icon="camera-plus" label={t('home.photoCheck')} onPress={() => router.push('/photo-check')} />
         <BigButton icon="doctor" label={t('home.talkDoctor')} onPress={() => router.push('/consultation/new')} />
         <BigButton icon="medical-bag" label={t('home.firstAid')} onPress={() => router.push('/first-aid')} />
         <BigButton icon="folder-heart-outline" label={t('home.myRecords')} onPress={() => router.push('/(tabs)/records')} />
