@@ -22,7 +22,20 @@ const config: ExpoConfig = {
     permissions: ['ACCESS_FINE_LOCATION', 'ACCESS_COARSE_LOCATION', 'RECORD_AUDIO', 'CALL_PHONE', 'SEND_SMS', 'CAMERA'],
   },
   web: { bundler: 'metro', output: 'single' },
-  plugins: ['expo-router', 'expo-sqlite', 'expo-location', 'expo-image-picker'],
+  plugins: [
+    'expo-router',
+    'expo-sqlite',
+    'expo-location',
+    'expo-image-picker',
+    'expo-font',
+    'expo-image',
+    'expo-localization',
+    'expo-secure-store',
+    'expo-sharing',
+    'expo-splash-screen',
+    'expo-status-bar',
+    'expo-web-browser',
+  ],
   extra: {
     apiUrl: process.env.EXPO_PUBLIC_API_URL ?? 'https://api.example.org',
     triageEngine: 'js',
@@ -30,7 +43,7 @@ const config: ExpoConfig = {
   },
   experiments: { typedRoutes: true },
   updates: { url: 'https://u.expo.dev/2c152537-9d8a-4be6-8379-79eac2238954' },
-  runtimeVersion: 'exposdk:57.0.0',
+  runtimeVersion: { policy: 'sdkVersion' },
 };
 
 export default config;
